@@ -10,10 +10,12 @@ const Wrapper = styled.div`
 background-color:#ffffff;
 display: flex;
 width:100%;
-margin:4px; 
+height:40px;
 font-size: ${fontSize[14]};
+box-shadow:2px 2px 10px ${Colors.lightgrey};
 `;
 /*-------------Item1-------------------------*/
+/*--main1-div--*/
 const LogoWithExtendedMenu = styled.div`
 display:flex;
 flex-direction:row;
@@ -21,40 +23,65 @@ width:30%;
 `;
 
 const Logo = styled.img`
-    width:${imageSize[13]};
+    width:${imageSize[14]};
 `;
 const LogoA = styled.a`
-    
+    text-decoration:none;
+    color:none;
 `;
 const ExtendedMenuLogo = styled.img`
-
+width:${imageSize[13]};
 `;
+/*--container2-div--*/
 const ExtendedMenu = styled.div`
-
+margin:5px;
+display:flex;
+justify-content:flex-end;
+width:50%;
+`;
+const ExtendedMenuDropDownContent = styled.div`
+width:10em;
+text-align:center;
+margin:2px;
+background-color:${Colors.lightgrey};
+color:${Colors.white};
 `;
 const ExtendedMenuDropDownImg = styled.img`
-
+margin-top:10px;
+width:${imageSize[11]};
 `;
 const ExtendedMenuCloseImg = styled.img`
     width:1em
+`;
+/*--container1-div--*/
+const LogoContainer = styled.div`
+    display:flex;
+    justify-content:flex-start;
+    width:40%;
+`;
+const LogoContainerMargin = styled.div`
+    display:flex;
+    align-items:center;
+    width:2.8em;
 `;
 /*-------------Item2-------------------------*/
 const Search = styled.div`
 display:flex;
 flex-direction:row;
-
-border:2px solid grey;
+border:1px solid ${Colors.lightgrey};
 width:40%;
+height:25px;
+margin-top:6px;
 `;
 const SearchInputDiv = styled.div`
 display:flex;
 align-items:center;
 justify-content:center;
-width:94%
+width:100%
 `;
 const SearchInput = styled.input`
     width:95%;
-    height:95%;
+    height:90%;
     border:none;
     outline-style:none;
     text-align:center;
@@ -62,12 +89,11 @@ const SearchInput = styled.input`
 const SearchLogoDiv = styled.div`
 display:flex;
 align-items:center;
-width:6%;
+width:2em;
 margin:2px;
 `;
 const SearchLogo = styled.img`
-width:2em;
-height:1.5em
+width:${imageSize[13]};
 `;
 
 /*-------------Item3-------------------------*/
@@ -79,24 +105,26 @@ width:30%;
 const ThreeIconsDiv = styled.div`
 display:flex;
 justify-content:flex-end;
-width:100%;
+width:97%;
 
 `;
 const Icon1 = styled.img`
-
+width:${imageSize[13]};
+margin-right:1em;
 `;
-const Icon2 = styled.img`
-
+const Icons2 = styled.img`
+width:${imageSize[13]};
 `;
-const Icon3 = styled.img`
 
-`;
 const BackgroundIcons = styled.div`
 display:flex;
+justify-content:center;
 border:2px solid ${Colors.lightgrey};
-border-radius:20em 20em;
+border-radius:30em 30em;
 background:${Colors.lightgrey};
 margin:2px;
+width:2em;
+height:30px;
 `;
 /*-------------END-------------------------*/
 
@@ -107,9 +135,23 @@ const TopNav: FC = () => {
 
 
             <LogoWithExtendedMenu>
-                <LogoA href="#"><Logo src="./media/icons/logo.png" alt="logo-site" /></LogoA>
-                <ExtendedMenuLogo src="./media/icons/house2.svg" alt="house-menu-img" />
-                <span>Home</span>
+
+                <LogoContainer>
+
+                    <LogoContainerMargin>
+                        <LogoA href="#"><Logo src="./media/icons/logo.png" alt="logo-site" /></LogoA>
+                    </LogoContainerMargin>
+
+                    <LogoContainerMargin>
+                        <ExtendedMenuLogo src="./media/icons/house2.svg" alt="house-menu-img" />
+                    </LogoContainerMargin>
+
+                    <LogoContainerMargin>
+                        <span>Home</span>
+                    </LogoContainerMargin>
+
+                </LogoContainer>
+
                 <ExtendedMenu>
                     <div>
                         <div ref={wrapperRef}>
@@ -118,16 +160,19 @@ const TopNav: FC = () => {
                             </div>
                             {dropdownOpen &&
                                 <>
-                                    {/*Dropdown items */
-                                        <ul>
-                                            <li>Pozycja 1</li>
-                                            <li>Pozycja 2</li>
-                                            <li>Pozycja 3</li>
-                                            <li>Pozycja 4</li>
-                                        </ul>
+                                    <ExtendedMenuDropDownContent>
+                                        {/*Dropdown items */
 
-                                    }
-                                    <div onClick={closeDropdown}><ExtendedMenuCloseImg src="./media/icons/close-button.png" /></div>
+                                            <ul>
+                                                <li>Pozycja 1</li>
+                                                <li>Pozycja 2</li>
+                                                <li>Pozycja 3</li>
+                                                <li>Pozycja 4</li>
+                                            </ul>
+
+                                        }
+                                        <div onClick={closeDropdown}><ExtendedMenuCloseImg src="./media/icons/close-button.png" /></div>
+                                    </ExtendedMenuDropDownContent>
                                 </>
 
                             }
@@ -149,10 +194,10 @@ const TopNav: FC = () => {
                 <ThreeIconsDiv>
                     <Icon1 src="./media/icons/house.svg" />
                     <BackgroundIcons>
-                        <Icon2 src="./media/icons/comments.svg" />
+                        <Icons2 src="./media/icons/comments.svg" />
                     </BackgroundIcons>
                     <BackgroundIcons>
-                        <Icon3 src="./media/icons/bell.svg" />
+                        <Icons2 src="./media/icons/bell.svg" />
                     </BackgroundIcons>
 
                 </ThreeIconsDiv>
