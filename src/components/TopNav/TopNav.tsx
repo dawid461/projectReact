@@ -1,16 +1,18 @@
 import { FC } from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import useDropdown from 'react-dropdown-hook';
-import { sortAndDeduplicateDiagnostics } from 'typescript';
+import { Colors } from '../../styledHelpers/Colors';
+import { fontSize } from '../../styledHelpers/FontSizes';
+import { imageSize } from '../../styledHelpers/ImageSize';
 
 /*-------------style-for-all-elements------------*/
 const Wrapper = styled.div`
 background-color:#ffffff;
 display: flex;
 width:100%;
-margin:4px;
+margin:4px; 
+font-size: ${fontSize[14]};
 `;
-
 /*-------------Item1-------------------------*/
 const LogoWithExtendedMenu = styled.div`
 display:flex;
@@ -19,7 +21,7 @@ width:30%;
 `;
 
 const Logo = styled.img`
-    width:2em;
+    width:${imageSize[13]};
 `;
 const LogoA = styled.a`
     
@@ -36,8 +38,6 @@ const ExtendedMenuDropDownImg = styled.img`
 const ExtendedMenuCloseImg = styled.img`
     width:1em
 `;
-/*-------------END-------------------------*/
-
 /*-------------Item2-------------------------*/
 const Search = styled.div`
 display:flex;
@@ -53,7 +53,10 @@ justify-content:center;
 width:94%
 `;
 const SearchInput = styled.input`
+    width:95%;
+    height:95%;
     border:none;
+    outline-style:none;
     text-align:center;
 `;
 const SearchLogoDiv = styled.div`
@@ -65,9 +68,36 @@ margin:2px;
 const SearchLogo = styled.img`
 width:2em;
 height:1.5em
-
 `;
 
+/*-------------Item3-------------------------*/
+const ThreeIcons = styled.div`
+display:flex;
+flex-direction:row;
+width:30%;
+`;
+const ThreeIconsDiv = styled.div`
+display:flex;
+justify-content:flex-end;
+width:100%;
+
+`;
+const Icon1 = styled.img`
+
+`;
+const Icon2 = styled.img`
+
+`;
+const Icon3 = styled.img`
+
+`;
+const BackgroundIcons = styled.div`
+display:flex;
+border:2px solid ${Colors.lightgrey};
+border-radius:20em 20em;
+background:${Colors.lightgrey};
+margin:2px;
+`;
 /*-------------END-------------------------*/
 
 const TopNav: FC = () => {
@@ -78,13 +108,13 @@ const TopNav: FC = () => {
 
             <LogoWithExtendedMenu>
                 <LogoA href="#"><Logo src="./media/icons/logo.png" alt="logo-site" /></LogoA>
-                <ExtendedMenuLogo src="./media/icons/house2.png" alt="house-menu-img" />
+                <ExtendedMenuLogo src="./media/icons/house2.svg" alt="house-menu-img" />
                 <span>Home</span>
                 <ExtendedMenu>
                     <div>
                         <div ref={wrapperRef}>
                             <div onClick={toggleDropdown}>
-                                <ExtendedMenuDropDownImg src="./media/icons/arrow-down.png" />
+                                <ExtendedMenuDropDownImg src="./media/icons/arrow-down.svg" />
                             </div>
                             {dropdownOpen &&
                                 <>
@@ -107,16 +137,26 @@ const TopNav: FC = () => {
 
 
             <Search>
-
                 <SearchInputDiv>
                     <SearchInput type="text" placeholder="Search Legalcluster" />
                 </SearchInputDiv>
                 <SearchLogoDiv>
                     <SearchLogo src="./media/icons/search.png" />
                 </SearchLogoDiv>
-
-
             </Search>
+
+            <ThreeIcons>
+                <ThreeIconsDiv>
+                    <Icon1 src="./media/icons/house.svg" />
+                    <BackgroundIcons>
+                        <Icon2 src="./media/icons/comments.svg" />
+                    </BackgroundIcons>
+                    <BackgroundIcons>
+                        <Icon3 src="./media/icons/bell.svg" />
+                    </BackgroundIcons>
+
+                </ThreeIconsDiv>
+            </ThreeIcons>
         </Wrapper>
     );
 
