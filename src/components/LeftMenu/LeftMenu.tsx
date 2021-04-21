@@ -29,6 +29,7 @@ const Profile = styled.div`
 width:100%;
 display:flex;
 flex-direction:column;
+margin-bottom:1em;
 `;
 const ProfileCenter = styled.div`
 display: flex;
@@ -48,20 +49,39 @@ font-weight:bold;
 const ProfileTitle = styled.span`
 color:${Colors.lightgrey};
 font-size:${fontSize[12]};
+margin-top:1em;
 `;
+/*-------Button-container--------------*/
 const ButtonsContainer = styled.div`
+width:100%;
+display:flex;
+justify-content:space-between;
+flex-direction:row;
+margin-top:1em;
+    
+`;
+const ButtonsContainerDiv = styled.div`
     display:flex;
 `;
 const LeftImg = styled.img`
-
+width:${imageSize[13]};
+margin-left:10px;
 `;
 const CenterTitle = styled.p`
+font-size:${fontSize[14]};
+font-color:${Colors.leftmenufontcolor};
+font-weight:bold;
+text-align:left;
+
 `;
 const ButtonA = styled.a`
-
+width:20px;
+margin-right:1.5em;
+border:2px solid ${Colors.leftmenufontcolor};
+border-radius:2px;
 `;
 const ButtonImg = styled.img`
-
+width:${imageSize[13]};
 `;
 /*----------Container-2----------------*/
 const Container2 = styled.div`
@@ -93,15 +113,21 @@ const LeftMenu: FC = () => {
 
 
                 <ButtonsContainer>
-                    <LeftImg />
-                    <CenterTitle></CenterTitle>
-                    <ButtonA><ButtonImg /></ButtonA>
+                    <ButtonsContainerDiv>
+                        <LeftImg src="../media/icons/network.png" alt="network" />
+                    </ButtonsContainerDiv>
+                    <ButtonsContainerDiv>
+                        <CenterTitle>Your Network</CenterTitle>
+                    </ButtonsContainerDiv>
+                    <ButtonsContainerDiv>
+                        <ButtonA href="#" ><ButtonImg src="../media/icons/network.svg" alt="network-button" /></ButtonA>
+                    </ButtonsContainerDiv>
                 </ButtonsContainer>
 
                 <ButtonsContainer>
-                    <LeftImg />
-                    <CenterTitle></CenterTitle>
-                    <ButtonA><ButtonImg /></ButtonA>
+                    <LeftImg src="../media/icons/publications.svg" alt="publications" />
+                    <CenterTitle>Your Publications</CenterTitle>
+                    <ButtonA href="#"><ButtonImg src="../media/icons/plus.svg" alt="plus" /></ButtonA>
                 </ButtonsContainer>
             </Container1>
 
