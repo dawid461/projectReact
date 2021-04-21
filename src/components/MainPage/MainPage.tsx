@@ -19,7 +19,7 @@ width:100%;
 height:100%;
 `;
 const Container1 = styled.div`
-width:15%;
+width:18%;
 display:flex;
 flex-direction:column;
 justify-content:flex-start;
