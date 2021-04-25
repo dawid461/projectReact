@@ -18,7 +18,6 @@ flex-direction:row;
 width:100%;
 height:12%;
 margin-top:2em;
-border:2px solid black;
 `;
 const ImgWithTtile = styled.div`
 display:flex;
@@ -27,7 +26,6 @@ background-color:lightblue;
 `;
 const LatestPublications = styled.div`
 display:flex;
-
 width:70%;
 background-color:yellow;
 `;
@@ -38,7 +36,6 @@ flex-direction:row;
 width:100%;
 height:10%;
 margin-top:8em;
-border:2px solid black;
 `;
 const Blocks = styled.div`
 width:25%;
@@ -56,7 +53,6 @@ flex-direction:column;
 width:100%;
 height:100%;
 margin-top:8em;
-border:2px solid black;
 `;
 const Posts = styled.div`
 width:100%;

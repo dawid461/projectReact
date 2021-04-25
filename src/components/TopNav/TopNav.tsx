@@ -4,6 +4,7 @@ import useDropdown from 'react-dropdown-hook';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
+import ExtendendMenu from '../ExtendedMenu/ExtendendMenu';
 
 /*-------------style-for-all-elements------------*/
 const Wrapper = styled.div`
@@ -19,15 +20,14 @@ box-shadow:2px 2px 10px ${Colors.lightgrey};
 const LogoWithExtendedMenu = styled.div`
 display:flex;
 flex-direction:row;
-width:30%;
+width:32%;
 `;
-
 const Logo = styled.img`
-    width:${imageSize[14]};
+width:${imageSize[14]};
 `;
 const LogoA = styled.a`
-    text-decoration:none;
-    color:none;
+text-decoration:none;
+color:none;
 `;
 const ExtendedMenuLogo = styled.img`
 width:${imageSize[13]};
@@ -37,13 +37,12 @@ const ExtendedMenu = styled.div`
 margin:5px;
 display:flex;
 justify-content:flex-end;
-width:50%;
+width:49%;
 `;
 const ExtendedMenuDropDownContent = styled.div`
-width:10em;
 text-align:center;
 margin:2px;
-background-color:${Colors.lightgrey};
+background-color:${Colors.white};
 color:${Colors.white};
 `;
 const ExtendedMenuDropDownImg = styled.img`
@@ -51,18 +50,18 @@ margin-top:10px;
 width:${imageSize[11]};
 `;
 const ExtendedMenuCloseImg = styled.img`
-    width:1em
+width:${imageSize[12]};
 `;
 /*--container1-div--*/
 const LogoContainer = styled.div`
-    display:flex;
-    justify-content:flex-start;
-    width:40%;
+display:flex;
+justify-content:flex-start;
+width:40%;
 `;
 const LogoContainerMargin = styled.div`
-    display:flex;
-    align-items:center;
-    width:2.8em;
+display:flex;
+align-items:center;
+width:2.8em;
 `;
 /*-------------Item2-------------------------*/
 const Search = styled.div`
@@ -80,11 +79,11 @@ justify-content:center;
 width:100%
 `;
 const SearchInput = styled.input`
-    width:95%;
-    height:90%;
-    border:none;
-    outline-style:none;
-    text-align:center;
+width:95%;
+height:90%;
+border:none;
+outline-style:none;
+text-align:center;
 `;
 const SearchLogoDiv = styled.div`
 display:flex;
@@ -95,7 +94,6 @@ margin:2px;
 const SearchLogo = styled.img`
 width:${imageSize[13]};
 `;
-
 /*-------------Item3-------------------------*/
 const ThreeIcons = styled.div`
 display:flex;
@@ -106,7 +104,6 @@ const ThreeIconsDiv = styled.div`
 display:flex;
 justify-content:flex-end;
 width:97%;
-
 `;
 const Icon1 = styled.img`
 width:${imageSize[13]};
@@ -115,7 +112,6 @@ margin-right:1em;
 const Icons2 = styled.img`
 width:${imageSize[13]};
 `;
-
 const BackgroundIcons = styled.div`
 display:flex;
 justify-content:center;
@@ -163,12 +159,7 @@ const TopNav: FC = () => {
                                     <ExtendedMenuDropDownContent>
                                         {/*Dropdown items */
 
-                                            <ul>
-                                                <li>Pozycja 1</li>
-                                                <li>Pozycja 2</li>
-                                                <li>Pozycja 3</li>
-                                                <li>Pozycja 4</li>
-                                            </ul>
+                                            <ExtendendMenu />
 
                                         }
                                         <div onClick={closeDropdown}><ExtendedMenuCloseImg src="./media/icons/close-button.png" /></div>

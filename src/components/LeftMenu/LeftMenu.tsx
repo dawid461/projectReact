@@ -82,7 +82,7 @@ border-radius:5px;
 `;
 const ButtonImg = styled.img`
 width:${imageSize[13]};
-margin-left:5px;
+margin-left:4px;
 `;
 /*----------Container-2----------------*/
 const Container2 = styled.div`
