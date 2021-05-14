@@ -1,5 +1,5 @@
 
-import { FC } from 'react';
+import { ChangeEvent, FC, useState } from 'react';
 import styled from "styled-components";
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
@@ -76,125 +76,161 @@ c
 
 const ExtendedMenu: FC = () => {
 
+    //searcher content
+    const [inputText, setInputText] = useState<string>('');
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
+    }
+
     return (
         <Wrapper>
-            <Filter type="text" name="filter" placeholder="Filter..."></Filter>
+
+            <Filter type="text" name="filter" placeholder="Filter..." value={inputText} onChange={inputHandler} />
 
             <ListContainer>
 
-                <ListElementTitle>
-                    <Title> Platform</Title>
-                </ListElementTitle>
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/house2.svg" alt="home" />
-                        <ListSpan>Home</ListSpan>
-                    </ListElementA>
-                </ListElement>
+                {'Platform'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElementTitle>
+                        <Title> Platform</Title>
+                    </ListElementTitle>
+                }
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/publications.svg" alt="home" />
-                        <ListSpan>Publications</ListSpan>
-                    </ListElementA>
+                {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/house2.svg" alt="home" />
+                            <ListSpan>Home</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
-                </ListElement>
+                {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/publications.svg" alt="home" />
+                            <ListSpan>Publications</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/people.svg" alt="people" />
-                        <ListSpan>People</ListSpan>
-                    </ListElementA>
+                {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/people.svg" alt="people" />
+                            <ListSpan>People</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
-                </ListElement>
+                {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/entities2.svg" alt="entities" />
+                            <ListSpan>Entities</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/entities2.svg" alt="entities" />
-                        <ListSpan>Entities</ListSpan>
-                    </ListElementA>
-
-                </ListElement>
-
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/administration.svg" alt="administration" />
-                        <ListSpan>Administration</ListSpan>
-                    </ListElementA>
-
-                </ListElement>
-
-
-
-
-                <ListElementTitle>
-                    <Title>Workspaces</Title>
-                </ListElementTitle>
-
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/publications.svg" alt="Client-contracts" />
-                        <ListSpan>Client Contracts</ListSpan>
-                    </ListElementA>
-
-                </ListElement>
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/publications.svg" alt="Supplier-contract" />
-                        <ListSpan>Supplier Contracts</ListSpan>
-                    </ListElementA>
-
-                </ListElement>
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/entities.svg" alt="corporate" />
-                        <ListSpan>Corporate</ListSpan>
-                    </ListElementA>
-
-                </ListElement>
-
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/people.svg" alt="Group-Norms" />
-                        <ListSpan>Group Norms</ListSpan>
-                    </ListElementA>
-                </ListElement>
-
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/publications.svg" alt="Group-Norms" />
-                        <ListSpan>Real estate Contracts</ListSpan>
-                    </ListElementA>
-                </ListElement>
+                {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/administration.svg" alt="administration" />
+                            <ListSpan>Administration</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
 
 
-                <ListElementTitle>
-                    <Title>Account</Title>
-                </ListElementTitle>
+                {'Workspaces'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElementTitle>
+                        <Title>Workspaces</Title>
+                    </ListElementTitle>
+                }
+                {'Client Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/publications.svg" alt="Client-contracts" />
+                            <ListSpan>Client Contracts</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
-                <ListElement>
-                    <ProfileImg src="../media/profile/profile.jpg" alt="profile-img" />
-                    <ProfileDiv>
-                        <ProfileName>Dawid Czuba</ProfileName>
-                        <SeeProfile href="#">See Profile</SeeProfile>
-                    </ProfileDiv>
-                </ListElement>
+                {'Supplier Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/publications.svg" alt="Supplier-contract" />
+                            <ListSpan>Supplier Contracts</ListSpan>
+                        </ListElementA>
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/privacy.svg" alt="Privacy" />
-                        <ListSpan>Privacy</ListSpan>
-                    </ListElementA>
-                </ListElement>
+                    </ListElement>
+                }
 
-                <ListElement>
-                    <ListElementA href="#">
-                        <ListImg src="./media/icons/settings.svg" alt="Settings" />
-                        <ListSpan>Settings</ListSpan>
-                    </ListElementA>
-                </ListElement>
+                {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/entities.svg" alt="corporate" />
+                            <ListSpan>Corporate</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
+
+                {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/people.svg" alt="Group-Norms" />
+                            <ListSpan>Group Norms</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
+
+                {'Real estate Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/publications.svg" alt="Group-Norms" />
+                            <ListSpan>Real estate Contracts</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
+
+
+
+                {'Account'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElementTitle>
+                        <Title>Account</Title>
+                    </ListElementTitle>
+                }
+
+                {'See Profile'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ProfileImg src="../media/profile/profile.jpg" alt="profile-img" />
+                        <ProfileDiv>
+                            <ProfileName>Dawid Czuba</ProfileName>
+                            <SeeProfile href="#">See Profile</SeeProfile>
+                        </ProfileDiv>
+                    </ListElement>
+                }
+
+                {'Privacy'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/privacy.svg" alt="Privacy" />
+                            <ListSpan>Privacy</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
+
+                {'Settings'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <ListElementA href="#">
+                            <ListImg src="./media/icons/settings.svg" alt="Settings" />
+                            <ListSpan>Settings</ListSpan>
+                        </ListElementA>
+                    </ListElement>
+                }
 
 
             </ListContainer>

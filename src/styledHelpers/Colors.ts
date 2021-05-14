@@ -5,6 +5,6 @@ export const Colors = {
     backgroundpage: '#f5f7f9',
     border: '#f5f7f9',
     namesurname: '#4d5ead',
-    leftmenufontcolor: '#4b5268'
-
+    leftmenufontcolor: '#4b5268',
+    grey: '#666666'
 }
