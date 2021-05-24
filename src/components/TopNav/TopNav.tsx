@@ -49,9 +49,6 @@ const ExtendedMenuDropDownImg = styled.img`
 margin-top:10px;
 width:${imageSize[11]};
 `;
-const ExtendedMenuCloseImg = styled.img`
-width:${imageSize[12]};
-`;
 /*--container1-div--*/
 const LogoContainer = styled.div`
 display:flex;
@@ -162,7 +159,7 @@ const TopNav: FC = () => {
                                             <ExtendendMenu />
 
                                         }
-                                        <div onClick={closeDropdown}><ExtendedMenuCloseImg src="./media/icons/close-button.png" /></div>
+
                                     </ExtendedMenuDropDownContent>
                                 </>
 

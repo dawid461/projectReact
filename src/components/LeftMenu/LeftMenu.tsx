@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
+import { Link } from 'react-router-dom';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 display:flex;
@@ -72,7 +73,7 @@ color:${Colors.leftmenufontcolor};
 font-weight:bold;
 text-align:left;
 `;
-const ButtonA = styled.a`
+const CustomLinkButtons = styled(Link)`
 width:25px;
 height:18px;
 padding:1px;
@@ -96,7 +97,7 @@ display:flex;
 justify-content:space-between;
 margin-bottom:1em;
 `;
-const ButtonsA = styled.a`
+const CustomLink = styled(Link)`
 font-size:${fontSize[14]};
 color:${Colors.leftmenufontcolor};
 font-weight:bold;
@@ -107,7 +108,6 @@ width:${imageSize[14]};
 margin-right:1em;
 margin-left:10px;
 `;
-
 /*------------END----------------------*/
 
 
@@ -119,10 +119,10 @@ const LeftMenu: FC = () => {
             <Container1>
                 <Profile>
                     <ProfileCenter>
-                        <ProfileImg src="../media/profile/profile.jpg" alt="Profile-img" />
+                        <Link to="/Profile"><ProfileImg src="../media/profile/profile.jpg" alt="Profile-img" /></Link>
                     </ProfileCenter>
                     <ProfileCenter>
-                        <NameSurname>Dawid Czuba</NameSurname>
+                        <CustomLink to='/Profile'><NameSurname>Dawid Czuba</NameSurname></CustomLink>
                     </ProfileCenter>
                     <ProfileCenter>
                         <ProfileTitle>Wsei - Kraków</ProfileTitle>
@@ -140,7 +140,7 @@ const LeftMenu: FC = () => {
                         <CenterTitle>Your Network</CenterTitle>
                     </ButtonsContainerDiv1>
                     <ButtonsContainerDiv1>
-                        <ButtonA href="#" ><ButtonImg src="../media/icons/network.svg" alt="network-button" /></ButtonA>
+                        <CustomLinkButtons to='/YourNetwork' ><ButtonImg src="../media/icons/network.svg" alt="network-button" /></CustomLinkButtons>
                     </ButtonsContainerDiv1>
                 </ButtonsContainer1>
 
@@ -152,20 +152,20 @@ const LeftMenu: FC = () => {
                         <CenterTitle>Your Publications</CenterTitle>
                     </ButtonsContainerDiv1>
                     <ButtonsContainerDiv1>
-                        <ButtonA href="#"><ButtonImg src="../media/icons/plus.svg" alt="plus" /></ButtonA>
+                        <CustomLinkButtons to='/YourPublications'><ButtonImg src="../media/icons/plus.svg" alt="plus" /></CustomLinkButtons>
                     </ButtonsContainerDiv1>
                 </ButtonsContainer1>
             </Container1>
 
             <Container2>
                 <ButtonsContainer2>
-                    <ButtonsA href="#"><ButtonsAimg src="../media/icons/publications.svg" alt="publications2" />Publications</ButtonsA>
+                    <CustomLink to='/Publications'><ButtonsAimg src="../media/icons/publications.svg" alt="publications2" />Publications</CustomLink>
                 </ButtonsContainer2>
                 <ButtonsContainer2>
-                    <ButtonsA href="#"><ButtonsAimg src="../media/icons/ecosystem.svg" alt="ecosystem" />Ecosystem</ButtonsA>
+                    <CustomLink to='/Ecosystem'><ButtonsAimg src="../media/icons/ecosystem.svg" alt="ecosystem" />Ecosystem</CustomLink>
                 </ButtonsContainer2>
                 <ButtonsContainer2>
-                    <ButtonsA href="#"><ButtonsAimg src="../media/icons/entities2.svg" alt="enitites" />Entities</ButtonsA>
+                    <CustomLink to='/Entities'><ButtonsAimg src="../media/icons/entities2.svg" alt="enitites" />Entites</CustomLink>
                 </ButtonsContainer2>
             </Container2>
 

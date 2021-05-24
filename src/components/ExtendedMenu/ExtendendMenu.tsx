@@ -4,20 +4,21 @@ import styled from "styled-components";
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
+import { Link } from 'react-router-dom';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 background-color:${Colors.white};
 position: relative;
 display: inline-block;
-height:27.6em;
+height:29.5em;
 width:200px;
 `;
 /*------------extendedmenu--------------*/
 const ListContainer = styled.div`
 position: absolute;
-height:100%;
+height:28em;
 width:100%;
-box-shadow:0px 5px 30px ${Colors.lightgrey};
+box-shadow:0px 1px 20px ${Colors.lightgrey};
 z-index: 1;
 `;
 const ListElement = styled.div`
@@ -30,7 +31,7 @@ color:${Colors.leftmenufontcolor};
 margin-left:6px;
 margin-bottom:2px;
 `;
-const ListElementA = styled.a`
+const CustomLinkElement = styled(Link)`
 text-decoration:none;
 color:${Colors.leftmenufontcolor};
 `;
@@ -58,7 +59,7 @@ width:${imageSize[14]};
 height:${imageSize[13]};
 border:2px solid ${Colors.white};
 border-radius:100%;`;
-const SeeProfile = styled.a`
+const SeeProfile = styled(Link)`
 text-align:left;
 `;
 const ProfileName = styled.div`
@@ -100,46 +101,46 @@ const ExtendedMenu: FC = () => {
 
                 {'Home'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/">
                             <ListImg src="./media/icons/house2.svg" alt="home" />
                             <ListSpan>Home</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Publications'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Publications">
                             <ListImg src="./media/icons/publications.svg" alt="home" />
                             <ListSpan>Publications</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'People'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/People">
                             <ListImg src="./media/icons/people.svg" alt="people" />
                             <ListSpan>People</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Entities'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Entities">
                             <ListImg src="./media/icons/entities2.svg" alt="entities" />
                             <ListSpan>Entities</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Administration'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Administration">
                             <ListImg src="./media/icons/administration.svg" alt="administration" />
                             <ListSpan>Administration</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
@@ -152,47 +153,47 @@ const ExtendedMenu: FC = () => {
                 }
                 {'Client Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/ClientContracts">
                             <ListImg src="./media/icons/publications.svg" alt="Client-contracts" />
                             <ListSpan>Client Contracts</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Supplier Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/SuppilierContracts">
                             <ListImg src="./media/icons/publications.svg" alt="Supplier-contract" />
                             <ListSpan>Supplier Contracts</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
 
                     </ListElement>
                 }
 
                 {'Corporate'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Corporate">
                             <ListImg src="./media/icons/entities.svg" alt="corporate" />
                             <ListSpan>Corporate</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Group Norms'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/GroupNorms">
                             <ListImg src="./media/icons/people.svg" alt="Group-Norms" />
                             <ListSpan>Group Norms</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Real estate Contracts'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/ClientContracts">
                             <ListImg src="./media/icons/publications.svg" alt="Group-Norms" />
                             <ListSpan>Real estate Contracts</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
@@ -209,26 +210,34 @@ const ExtendedMenu: FC = () => {
                         <ProfileImg src="../media/profile/profile.jpg" alt="profile-img" />
                         <ProfileDiv>
                             <ProfileName>Dawid Czuba</ProfileName>
-                            <SeeProfile href="#">See Profile</SeeProfile>
+                            <SeeProfile to="/Profile">See Profile</SeeProfile>
                         </ProfileDiv>
                     </ListElement>
                 }
 
                 {'Privacy'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Privacy">
                             <ListImg src="./media/icons/privacy.svg" alt="Privacy" />
                             <ListSpan>Privacy</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 
                 {'Settings'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ListElementA href="#">
+                        <CustomLinkElement to="/Settings">
                             <ListImg src="./media/icons/settings.svg" alt="Settings" />
                             <ListSpan>Settings</ListSpan>
-                        </ListElementA>
+                        </CustomLinkElement>
+                    </ListElement>
+                }
+                {'Logout'.toLowerCase().includes(inputText.toLowerCase()) &&
+                    <ListElement>
+                        <CustomLinkElement to="/Logout">
+                            <ListImg src="#" alt="logout" />
+                            <ListSpan>Logout</ListSpan>
+                        </CustomLinkElement>
                     </ListElement>
                 }
 

@@ -1,10 +1,10 @@
 
 import { FC } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
+import { Link } from 'react-router-dom';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 display:flex;
@@ -135,7 +135,7 @@ const ArticleHyperLinkDiv = styled.div`
 display:flex;
 margin-left:15px;
 `;
-const ArticleHyperLink = styled.a`
+const CustomLinkArticle = styled(Link)`
 text-decoration:none;
 color:#3399ff;
 font-weight:bold;
@@ -155,9 +155,8 @@ height:100%;
 display:flex;
 background-color:green;
 margin:1px;
-`;
-
-/*-------------Containe-3--------------*/
+`
+/*-------------Container-3--------------*/
 
 const Container3 = styled.div`
 display:flex;
@@ -268,7 +267,7 @@ const LeftMenu: FC = () => {
                     </ArticleDiv>
 
                     <ArticleHyperLinkDiv>
-                        <ArticleHyperLink href="#">See more publications</ArticleHyperLink>
+                        <CustomLinkArticle to="./Publications">See more publications</CustomLinkArticle>
                     </ArticleHyperLinkDiv>
                 </LatestPublications>
 
@@ -276,10 +275,14 @@ const LeftMenu: FC = () => {
 
 
             <Container2>
+
                 <Blocks></Blocks>
                 <Blocks></Blocks>
                 <Blocks></Blocks>
                 <Blocks></Blocks>
+
+
+
             </Container2>
 
 
