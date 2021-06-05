@@ -1,5 +1,5 @@
 
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import TopNav from '../TopNav/TopNav';
 import LeftMenu from '../LeftMenu/LeftMenu';
@@ -10,6 +10,11 @@ import Workspace from '../Workspace/Workspace';
 import Test from '../TestSite/Test';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../actions/postsActions';
+import { getUsers } from '../../actions/usersActions';
+import { getComments } from '../../actions/commentActions';
+import { getPhoto } from '../../actions/photosActions';
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +22,10 @@ import {
     Link
 } from "react-router-dom";
 
+type GetPosts = ReturnType<typeof getPosts>
+type GetUsers = ReturnType<typeof getUsers>
+type GetComments = ReturnType<typeof getComments>
+type GetPhoto = ReturnType<typeof getPhoto>
 
 const MainWrapper = styled.div`
 display:flex;
@@ -47,6 +56,14 @@ flex-direction:column;
 
 
 const MainPage: FC = () => {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch<GetPosts>(getPosts());
+        dispatch<GetUsers>(getUsers());
+        dispatch<GetComments>(getComments());
+        dispatch<GetPhoto>(getPhoto());
+    })
 
     return (
         <Router>

@@ -5,6 +5,11 @@ import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
 import { Link } from 'react-router-dom';
+/*----API----------------------------*/
+import { IState } from '../../reducers'
+import { useSelector } from 'react-redux';
+import { IUsersReducer } from '../../reducers/usersReducers';
+import { IPhotoReducer } from '../../reducers/photoReducers';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 display:flex;
@@ -112,66 +117,78 @@ margin-left:10px;
 
 
 const LeftMenu: FC = () => {
+    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
+        ...state.photo
+    }));
 
-    return (
-        <Wrapper>
+    if (usersList?.length > 0) {
+        return (
+            <Wrapper>
 
-            <Container1>
-                <Profile>
-                    <ProfileCenter>
-                        <Link to="/Profile"><ProfileImg src="../media/profile/profile.jpg" alt="Profile-img" /></Link>
-                    </ProfileCenter>
-                    <ProfileCenter>
-                        <CustomLink to='/Profile'><NameSurname>Dawid Czuba</NameSurname></CustomLink>
-                    </ProfileCenter>
-                    <ProfileCenter>
-                        <ProfileTitle>Wsei - Kraków</ProfileTitle>
-                    </ProfileCenter>
+                <Container1>
+                    <Profile>
+                        <ProfileCenter>
+                            <Link to="/Profile"><ProfileImg src={photoList[2]?.url} alt="Profile-img" /></Link>
+                        </ProfileCenter>
+                        <ProfileCenter>
+                            <CustomLink to='/Profile'><NameSurname>{usersList[2]?.name}</NameSurname></CustomLink>
+                        </ProfileCenter>
+                        <ProfileCenter>
+                            <ProfileTitle>{usersList[2]?.company?.name}</ProfileTitle>
+                        </ProfileCenter>
 
-                </Profile>
+                    </Profile>
 
 
 
-                <ButtonsContainer1>
-                    <ButtonsContainerDiv1>
-                        <LeftImg src="../media/icons/network.png" alt="network" />
-                    </ButtonsContainerDiv1>
-                    <ButtonsContainerDiv1>
-                        <CenterTitle>Your Network</CenterTitle>
-                    </ButtonsContainerDiv1>
-                    <ButtonsContainerDiv1>
-                        <CustomLinkButtons to='/YourNetwork' ><ButtonImg src="../media/icons/network.svg" alt="network-button" /></CustomLinkButtons>
-                    </ButtonsContainerDiv1>
-                </ButtonsContainer1>
+                    <ButtonsContainer1>
+                        <ButtonsContainerDiv1>
+                            <LeftImg src="../media/icons/network.png" alt="network" />
+                        </ButtonsContainerDiv1>
+                        <ButtonsContainerDiv1>
+                            <CenterTitle>Your Network</CenterTitle>
+                        </ButtonsContainerDiv1>
+                        <ButtonsContainerDiv1>
+                            <CustomLinkButtons to='/YourNetwork' ><ButtonImg src="../media/icons/network.svg" alt="network-button" /></CustomLinkButtons>
+                        </ButtonsContainerDiv1>
+                    </ButtonsContainer1>
 
-                <ButtonsContainer1>
-                    <ButtonsContainerDiv1>
-                        <LeftImg src="../media/icons/publications.svg" alt="publications" />
-                    </ButtonsContainerDiv1>
-                    <ButtonsContainerDiv1>
-                        <CenterTitle>Your Publications</CenterTitle>
-                    </ButtonsContainerDiv1>
-                    <ButtonsContainerDiv1>
-                        <CustomLinkButtons to='/YourPublications'><ButtonImg src="../media/icons/plus.svg" alt="plus" /></CustomLinkButtons>
-                    </ButtonsContainerDiv1>
-                </ButtonsContainer1>
-            </Container1>
+                    <ButtonsContainer1>
+                        <ButtonsContainerDiv1>
+                            <LeftImg src="../media/icons/publications.svg" alt="publications" />
+                        </ButtonsContainerDiv1>
+                        <ButtonsContainerDiv1>
+                            <CenterTitle>Your Publications</CenterTitle>
+                        </ButtonsContainerDiv1>
+                        <ButtonsContainerDiv1>
+                            <CustomLinkButtons to='/YourPublications'><ButtonImg src="../media/icons/plus.svg" alt="plus" /></CustomLinkButtons>
+                        </ButtonsContainerDiv1>
+                    </ButtonsContainer1>
+                </Container1>
 
-            <Container2>
-                <ButtonsContainer2>
-                    <CustomLink to='/Publications'><ButtonsAimg src="../media/icons/publications.svg" alt="publications2" />Publications</CustomLink>
-                </ButtonsContainer2>
-                <ButtonsContainer2>
-                    <CustomLink to='/Ecosystem'><ButtonsAimg src="../media/icons/ecosystem.svg" alt="ecosystem" />Ecosystem</CustomLink>
-                </ButtonsContainer2>
-                <ButtonsContainer2>
-                    <CustomLink to='/Entities'><ButtonsAimg src="../media/icons/entities2.svg" alt="enitites" />Entites</CustomLink>
-                </ButtonsContainer2>
-            </Container2>
+                <Container2>
+                    <ButtonsContainer2>
+                        <CustomLink to='/Publications'><ButtonsAimg src="../media/icons/publications.svg" alt="publications2" />Publications</CustomLink>
+                    </ButtonsContainer2>
+                    <ButtonsContainer2>
+                        <CustomLink to='/Ecosystem'><ButtonsAimg src="../media/icons/ecosystem.svg" alt="ecosystem" />Ecosystem</CustomLink>
+                    </ButtonsContainer2>
+                    <ButtonsContainer2>
+                        <CustomLink to='/Entities'><ButtonsAimg src="../media/icons/entities2.svg" alt="enitites" />Entites</CustomLink>
+                    </ButtonsContainer2>
+                </Container2>
 
-        </Wrapper>
-    );
+            </Wrapper>
+        )
+    }
+    else {
+        return (<Wrapper />)
+    }
 
-}
+
+};
 export default LeftMenu;
 

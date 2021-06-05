@@ -16,7 +16,7 @@ box-shadow:2px 2px 10px ${Colors.lightgrey};
 
 /*-------------END-------------------------*/
 
-const TopNav: FC = () => {
+const Workspace: FC = () => {
 
     return (
         <Wrapper>
@@ -25,5 +25,5 @@ const TopNav: FC = () => {
     );
 
 }
-export default TopNav;
+export default Workspace;
 

@@ -16,7 +16,7 @@ box-shadow:2px 2px 10px ${Colors.lightgrey};
 
 /*-------------END-------------------------*/
 
-const TopNav: FC = () => {
+const Test: FC = () => {
 
     return (
         <Wrapper>
@@ -26,5 +26,5 @@ const TopNav: FC = () => {
     );
 
 }
-export default TopNav;
+export default Test;
 
