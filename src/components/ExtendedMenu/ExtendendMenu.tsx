@@ -5,6 +5,11 @@ import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
 import { Link } from 'react-router-dom';
+import { IUsersReducer } from '../../reducers/usersReducers';
+import { IPhotoReducer } from '../../reducers/photoReducers';
+import { useSelector } from 'react-redux';
+import { IState } from '../../reducers'
+import { profile } from 'console';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 background-color:${Colors.white};
@@ -84,6 +89,13 @@ const ExtendedMenu: FC = () => {
         const text = e.target.value;
         setInputText(text);
     }
+
+    const { usersList } = useSelector<IState, IUsersReducer>(state => ({
+        ...state.users
+    }));
+    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
+        ...state.photo
+    }));
 
     return (
         <Wrapper>
@@ -207,9 +219,9 @@ const ExtendedMenu: FC = () => {
 
                 {'See Profile'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
-                        <ProfileImg src="../media/profile/profile.jpg" alt="profile-img" />
+                        <ProfileImg src={photoList[2]?.url} alt="profile-img" />
                         <ProfileDiv>
-                            <ProfileName>Dawid Czuba</ProfileName>
+                            <ProfileName>{usersList[2]?.name}</ProfileName>
                             <SeeProfile to="/Profile">See Profile</SeeProfile>
                         </ProfileDiv>
                     </ListElement>
@@ -235,7 +247,7 @@ const ExtendedMenu: FC = () => {
                 {'Logout'.toLowerCase().includes(inputText.toLowerCase()) &&
                     <ListElement>
                         <CustomLinkElement to="/Logout">
-                            <ListImg src="#" alt="logout" />
+                            <ListImg src="./media/icons/logout.png" alt="logout" />
                             <ListSpan>Logout</ListSpan>
                         </CustomLinkElement>
                     </ListElement>

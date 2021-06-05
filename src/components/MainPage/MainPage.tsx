@@ -30,9 +30,11 @@ type GetPhoto = ReturnType<typeof getPhoto>
 const MainWrapper = styled.div`
 display:flex;
 width:100%;
-height:200em;
+height:100;
 background-color:${Colors.backgroundpage};
 flex-direction:column;
+font-family: Arial, Helvetica, sans-serif;
+font-size:1.6em;
 `;
 const Container = styled.div`
 display:flex;
@@ -80,7 +82,7 @@ const MainPage: FC = () => {
                             <Profile />
                         </Route>
                         <Route path="/Workspace">
-                            <Workspace />
+                            <Container2> <Workspace /></Container2>
                         </Route>
                         <Route path="/Ecosystem">
                             <Test />

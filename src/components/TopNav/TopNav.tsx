@@ -58,7 +58,11 @@ width:40%;
 const LogoContainerMargin = styled.div`
 display:flex;
 align-items:center;
-width:2.8em;
+margin-left:20px;
+`;
+const HomeSpan = styled.span`
+margin-left:10px;
+color:${Colors.leftmenufontcolor};
 `;
 /*-------------Item2-------------------------*/
 const Search = styled.div`
@@ -137,10 +141,7 @@ const TopNav: FC = () => {
 
                     <LogoContainerMargin>
                         <ExtendedMenuLogo src="./media/icons/house2.svg" alt="house-menu-img" />
-                    </LogoContainerMargin>
-
-                    <LogoContainerMargin>
-                        <span>Home</span>
+                        <HomeSpan>Home</HomeSpan>
                     </LogoContainerMargin>
 
                 </LogoContainer>

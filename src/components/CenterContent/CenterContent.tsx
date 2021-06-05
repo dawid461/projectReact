@@ -1,5 +1,5 @@
 
-import { FC, useState } from 'react';
+import { FC, useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
@@ -25,7 +25,7 @@ const Container1 = styled.div`
 display:flex;
 flex-direction:row;
 width:100%;
-height:18%;
+height:100%;
 margin-top:2em;
 `;
 /*-----------Img-with-title--------------------*/
@@ -143,7 +143,7 @@ font-size:${fontSize[16]};
 /*--------Container-2-------------------------*/
 const Container2 = styled.div`
 width:100%;
-height:10%;
+height:100%;
 display:flex;
 flex-direction:row;
 width:100%;
@@ -244,18 +244,24 @@ display:flex;
 flex-direction:column;
 width:100%;
 height:100%;
-margin-top:8em;
-`;
-const Posts = styled.div`
-width:100%;
-height:100%;
-display:flex;
-background-color:pink;
-margin:2px;
+margin-top:4em;
+.pagination{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    margin:20px;
+    font-size:2em;
+    color:#76b5c5;
+    font-weight:bold;
+    cursor:pointer;
+}
+.paginationA{
+    margin:10px;
+}
 `;
 const ResumeWorkHeaderContainer = styled.div`
 width:100%;
-height:10em;
+height:3em;
 display:flex;
 flex-direction:row;
 margin-bottom:12px;
@@ -299,22 +305,60 @@ display:flex;
 `;
 const FollowImg = styled.img`
 width:${imageSize[15]};
-heightL${imageSize[15]};
+height:${imageSize[15]};
 margin-right:8px;
 margin-left:8px;
 `;
 const FollowSpan = styled.span`
 color:${Colors.namesurname};
+font-size:${fontSize[14]};
+font-weight:bold;
 margin-right:9px;
 margin-top:10px;
 `;
 const DropdownArrow = styled.img`
 width:8px;
 height:8px;
-margin-top:10px;
+margin-top:12px;
 `;
-
-//('../media/banner/write.jpg');
+/*--Resume-work--*/
+const ResumeWorkMini = styled.h1`
+    width: 100%;
+    height:10em;
+    background-color:white;
+    border-radius:6px;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    margin-top:20px;
+`;
+const ResumeWorkTitle = styled.div`
+    font-size:20px;
+    padding-top:10px;
+    padding-left:10px;
+    color:rgb(67,85,168);
+    font-weight:bold;    
+`;
+const ResumeWorkText = styled.p`
+    font-size:15px;
+    color:rgb(148,151,174);
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-bottom: 10px;
+    text-align:justify;
+`;
+const ResumeWorkBottom = styled.span`
+    font-size:12px;
+    color:rgb(148,151,174);
+    padding-top:10px;
+    padding-bottom:10px;
+    padding-left:10px;
+    padding-right:10px;
+    img{
+        width:12px;
+        height:12px;
+        margin-right:3px;
+    }
+`;
 /*------------END----------------------*/
 
 const CenterContent: FC = () => {
@@ -335,6 +379,13 @@ const CenterContent: FC = () => {
     const handlePageClick = (data: any) => {
         const selected = data.selected;
         setCurrentPage(selected);
+    }
+    //searcher content
+    const [inputText, setInputText] = useState<string>('');
+
+    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        const text = e.target.value;
+        setInputText(text);
     }
     const ImgWithTtile = styled.div`
 display:flex;
@@ -539,7 +590,7 @@ justify-content:flex-end;
                         </ResumeWorkHeaderDiv1>
                         <ResumeWorkHeaderDiv2>
                             <InputDiv>
-                                <InputFilter placeholder="Filter by title..."></InputFilter>
+                                <InputFilter placeholder="Filter by title..." value={inputText} onChange={inputHandler} ></InputFilter>
                                 <InputImg src="./media/icons/search.png" alt="input-img"></InputImg>
                             </InputDiv>
                             <SelectFollowDiv>
@@ -551,10 +602,19 @@ justify-content:flex-end;
                     </ResumeWorkHeaderContainer>
 
 
-                    {
+                    {"$post.title".toLowerCase().includes(inputText.toLowerCase()) &&
+                        //musisz ogarnac jak zrobic wyszukiwanie pod pokazujace sie posty z api
+
 
                         postList.slice(currentPage, currentPage + 10).map((post) => (
-                            <Posts></Posts>
+                            <ResumeWorkMini key={post.id}>
+                                <ResumeWorkTitle>{post.title}</ResumeWorkTitle>
+                                <ResumeWorkText>{post.body}</ResumeWorkText>
+                                <ResumeWorkBottom>
+                                    <img src="../../media/icons/logout.png" alt=""></img>Subsid.corp  <img src="../../media/icons/bell.png" alt=""></img>Supplier contract + Updated 3 Days ago by John Doe
+                            </ResumeWorkBottom>
+                            </ResumeWorkMini>
+
                         ))
                     }
                     <ReactPaginate
@@ -567,6 +627,7 @@ justify-content:flex-end;
                         pageRangeDisplayed={5}
                         onPageChange={handlePageClick}
                         containerClassName={'pagination'}
+                        pageLinkClassName={'paginationA'}
                         activeClassName={'active'}
                         pageClassName={'page'}
                         previousClassName={'previous'}
