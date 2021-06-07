@@ -251,7 +251,7 @@ margin-top:4em;
     justify-content:center;
     margin:20px;
     font-size:2em;
-    color:#76b5c5;
+    color:#0381bd;
     font-weight:bold;
     cursor:pointer;
 }

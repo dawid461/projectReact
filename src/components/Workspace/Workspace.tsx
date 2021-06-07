@@ -24,6 +24,9 @@ background-color:${Colors.white};
 font-size: ${fontSize[14]};
 box-shadow:2px 2px 10px ${Colors.lightgrey};
 `;
+const CustomLink = styled(Link)`
+text-decoration:none;
+`;
 /*-------------Container-1--------------------*/
 const Container1 = styled.div`
 display:flex;
@@ -70,6 +73,7 @@ const IconSettingsB = styled.img`
 width:${imageSize[13]};
 height:${imageSize[13]};
 margin-top:0.8em;
+cursor:pointer;
 `;
 const BannerIconWithDescription = styled.div`
 display:flex;
@@ -88,7 +92,7 @@ margin-left:2em;
 /*-------------Container-2--------------------*/
 const Container2 = styled.div`
 display:flex;
-flex-direction:row;
+flex-direction:column;
 align-items:center;
 justify-content:center;
 width:90%;
@@ -96,6 +100,37 @@ height:25em;
 background-color:${Colors.lightgrey};
 margin-top:4em;
 box-shadow: 5px 2px 10px 6px rgba(0,0,0,0.2);
+`;
+const SpanBox = styled.div`
+width:100%;
+display:flex;
+flex-direction:row;
+`;
+const SpanDiv1 = styled.div`
+width:20%;
+display:flex;
+justify-content:flex-start;
+margin-left:5em;
+`;
+const SpanDiv2 = styled.div`
+width:70%;
+display:flex;
+justify-content:flex-end
+`;
+const Span1 = styled.span`
+color:#8c8f94;
+font-weight:bold;
+`;
+const Span2 = styled.span`
+color:#8c8f94;
+font-weight:bold;
+cursor:pointer;
+`;
+const BoxContainer = styled.div`
+width:100%;
+display:flex;
+flex-direction:row;
+justify-content:space-around;
 `;
 const Box = styled.div`
 width:20em;
@@ -105,8 +140,7 @@ flex-direction:column;
 justify-content:flex-start;
 background-color:${Colors.white};
 border-radius:10px;
-margin-left:2em;
-margin-top:4em;
+margin-top:1.5em;
 padding:1em;
 `;
 const BoxIcon = styled.img`
@@ -118,6 +152,7 @@ const BoxTitle = styled.span`
 font-size:${fontSize[18]};
 font-weight:bold;
 margin-bottom:10px;
+color:${Colors.black};
 `;
 const BoxDescription = styled.p`
 color:${Colors.leftmenufontcolor};
@@ -135,7 +170,7 @@ margin-top:3em;
     justify-content:center;
     margin:20px;
     font-size:2em;
-    color:#76b5c5;
+    color:#0381bd;
     font-weight:bold;
     cursor:pointer;
 }
@@ -149,7 +184,7 @@ width:100%;
 height:3em;
 display:flex;
 flex-direction:row;
-margin-bottom:12px;
+margin-bottom:2px;
 `;
 const ResumeWorkHeaderDiv1 = styled.div`
 width:20%;
@@ -206,6 +241,176 @@ width:8px;
 height:8px;
 margin-top:12px;
 margin-right:25px;
+`;
+/*--------------------Colors---Button---Container----*/
+const ButtonsContainer = styled.div`
+display:flex;
+flex-direction:row;
+justify-content:space-around;
+width:100%;
+height:2em;
+margin-top:2em;
+`;
+/*----------------------*/
+const ButtonDiv1 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:40px;
+margin-left:10px;
+background-color:#eaecf5;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Title1 = styled.span`
+font-size:18px;
+color:#2d429e;
+font-weight:bold;
+`;
+/*----------------------*/
+const ButtonDiv2 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:80px;
+background-color:#cce5cc;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon2 = styled.img`
+width:${imageSize[11]};
+`;
+const Title2 = styled.span`
+font-size:18px;
+color:#48a248;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv3 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:90px;
+background-color:#edf6fa;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon3 = styled.img`
+width:${imageSize[11]};
+`;
+const Title3 = styled.span`
+font-size:18px;
+color:#2a95c8;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv4 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:230px;
+background-color:#f2e5c4;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon4 = styled.img`
+width:${imageSize[11]};
+`;
+const Title4 = styled.span`
+font-size:18px;
+color:#dfbb66;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv5 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:140px;
+background-color:#cccccc;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon5 = styled.img`
+width:${imageSize[11]};
+`;
+const Title5 = styled.span`
+font-size:18px;
+color:#6f7483;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv6 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:80px;
+background-color:#e8e8e8;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon6 = styled.img`
+width:${imageSize[11]};
+`;
+const Title6 = styled.span`
+font-size:18px;
+color:#8d929f;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv7 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:120px;
+background-color:#ffffff;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Icon7 = styled.img`
+width:${imageSize[11]};
+`;
+const Title7 = styled.span`
+font-size:18px;
+color:#8d929f;
+font-weight:bold;
+margin-left:5px;
+`;
+/*----------------------*/
+const ButtonDiv8 = styled.div`
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:row;
+width:35px;
+background-color:#ffffff;
+box-shadow:2px 0px 3px 0px #a1a5b0;
+cursor:pointer;
+border-radius:4px;
+`;
+const Title8 = styled.span`
+font-size:18px;
+color:#a1a5b0;
+font-weight:bold;
 `;
 /*----------posts-with-pagination--------------------*/
 const ResumeWorkMini = styled.h1`
@@ -304,23 +509,41 @@ const Workspace: FC = () => {
 
 
                 <Container2>
-                    <Box>
-                        <BoxIcon src="./media/icons/entities.png" alt="entities-img" />
-                        <BoxTitle>{postList[1]?.title}</BoxTitle>
-                        <BoxDescription>{postList[1]?.body}</BoxDescription>
-                    </Box>
+                    <SpanBox>
+                        <SpanDiv1>
+                            <Span1>Start working on corporate matters</Span1>
+                        </SpanDiv1>
+                        <SpanDiv2>
+                            <Span2>Hide</Span2>
+                        </SpanDiv2>
+                    </SpanBox>
 
-                    <Box>
-                        <BoxIcon src="./media/icons/house2.png" alt="entities-img" />
-                        <BoxTitle>{postList[3]?.title}</BoxTitle>
-                        <BoxDescription>{postList[2]?.body}</BoxDescription>
-                    </Box>
 
-                    <Box>
-                        <BoxIcon src="./media/icons/ecosystem.png" alt="entities-img" />
-                        <BoxTitle>{postList[6]?.title}</BoxTitle>
-                        <BoxDescription>{postList[3]?.body}</BoxDescription>
-                    </Box>
+                    <BoxContainer>
+                        <CustomLink to="/Entities">
+                            <Box>
+                                <BoxIcon src="./media/icons/entities.png" alt="entities-img" />
+                                <BoxTitle>Explore your Entities</BoxTitle>
+                                <BoxDescription>{postList[1]?.body}</BoxDescription>
+                            </Box>
+                        </CustomLink>
+
+                        <CustomLink to="/Test">
+                            <Box>
+                                <BoxIcon src="./media/icons/house2.png" alt="entities-img" />
+                                <BoxTitle>Structure the ownership</BoxTitle>
+                                <BoxDescription>{postList[3]?.body}</BoxDescription>
+                            </Box>
+                        </CustomLink>
+
+                        <CustomLink to="/Test">
+                            <Box>
+                                <BoxIcon src="./media/icons/ecosystem.png" alt="entities-img" />
+                                <BoxTitle>Define the calendar</BoxTitle>
+                                <BoxDescription>{postList[1]?.body}</BoxDescription>
+                            </Box>
+                        </CustomLink>
+                    </BoxContainer>
                 </Container2>
 
 
@@ -344,6 +567,47 @@ const Workspace: FC = () => {
                     </ResumeWorkHeaderContainer>
 
 
+                    <ButtonsContainer>
+                        <ButtonDiv1>
+                            <Title1>All</Title1>
+                        </ButtonDiv1>
+
+                        <ButtonDiv2>
+                            <Icon2 src="./media/icons/workspace/button2.svg" alt="button2" />
+                            <Title2>SAS</Title2>
+                        </ButtonDiv2>
+
+                        <ButtonDiv3>
+                            <Icon3 src="./media/icons/workspace/button3.svg" alt="button3" />
+                            <Title3>SARL</Title3>
+                        </ButtonDiv3>
+
+                        <ButtonDiv4>
+                            <Icon4 src="./media/icons/workspace/button4.svg" alt="button4" />
+                            <Title4>Secondary buisness</Title4>
+                        </ButtonDiv4>
+
+                        <ButtonDiv5>
+                            <Icon5 src="./media/icons/workspace/button5.svg" alt="button5" />
+                            <Title5>Comunities</Title5>
+                        </ButtonDiv5>
+
+                        <ButtonDiv6>
+                            <Icon6 src="./media/icons/workspace/button6.svg" alt="button6" />
+                            <Title6>POA</Title6>
+                        </ButtonDiv6>
+
+                        <ButtonDiv7>
+                            <Icon7 src="./media/icons/workspace/button7.svg" alt="button7" />
+                            <Title7>Survey</Title7>
+                        </ButtonDiv7>
+
+                        <ButtonDiv8>
+                            <Title8>...</Title8>
+                        </ButtonDiv8>
+                    </ButtonsContainer>
+
+
                     {"$post.title".toLowerCase().includes(inputText.toLowerCase()) &&
                         //musisz ogarnac jak zrobic wyszukiwanie pod pokazujace sie posty z api
 
@@ -353,7 +617,7 @@ const Workspace: FC = () => {
                                 <ResumeWorkTitle>{post.title}</ResumeWorkTitle>
                                 <ResumeWorkText>{post.body}</ResumeWorkText>
                                 <ResumeWorkBottom>
-                                    <img src="../../media/icons/entities.svg" alt="entities-svg" /><LittleSpan>SAS</LittleSpan> . Updated 3 Days ago by John Doe
+                                    <img src="../../media/icons/workspace/button2.svg" alt="entities-svg" /><LittleSpan>SAS</LittleSpan> . Updated 3 Days ago by John Doe
                             </ResumeWorkBottom>
                             </ResumeWorkMini>
 

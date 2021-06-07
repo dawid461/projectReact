@@ -120,6 +120,9 @@ const MainPage: FC = () => {
                         <Route path="/Settings">
                             <Test />
                         </Route>
+                        <Route path="/Test">
+                            <Test />
+                        </Route>
                         <Route path="/">
                             <Container2><CenterContent /></Container2>
                         </Route>
