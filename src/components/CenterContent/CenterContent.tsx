@@ -143,10 +143,9 @@ font-size:${fontSize[16]};
 /*--------Container-2-------------------------*/
 const Container2 = styled.div`
 width:100%;
-height:100%;
+height:30em;
 display:flex;
 flex-direction:row;
-width:100%;
 margin-top:20px;
 flex-wrap:nowrap;
 overflow-x:auto;
@@ -155,6 +154,12 @@ border-radius:7px;
     a{
         text-decoration:none;
     }
+`;
+const WorkSpacesContainer = styled.div`
+width:100%;
+height:100%;
+display:flex;
+flex-direction:row;
 `;
 const WorkSpacesMini = styled.div`
 width:300px;
@@ -496,90 +501,91 @@ justify-content:flex-end;
                 <HeaderTitle>Workspaces</HeaderTitle>
                 <Container2>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/smallcontract.png" alt="smallcontract" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Client contract</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
+                    <WorkSpacesContainer>
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/smallcontract.png" alt="smallcontract" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Client contract</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/entities.png" alt="entities" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Entities</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/entities.png" alt="entities" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Entities</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/ecosystem.png" alt="ecossytem" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Eco System</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/ecosystem.png" alt="ecossytem" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Eco System</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/people.png" alt="workspaces" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Workspaces</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/people.png" alt="workspaces" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Workspaces</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/smallcontract.png" alt="smallcontract" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Corporate</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/smallcontract.png" alt="smallcontract" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Corporate</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
 
-                    <Link to="/Workspace">
-                        <WorkSpacesMini >
-                            <WorkSpacePhoto />
-                            <WorkSpaceCard><div><img src="./media/icons/entities.png" alt="entities" /></div></WorkSpaceCard>
-                            <WorkSpaceTitle>Entities</WorkSpaceTitle>
-                            <WorkSpaceBottom>
-                                <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
-                            </WorkSpaceBottom>
-                            <WorkSpaceBottomTwo>
-                                <p>Last update 2 days ago</p>
-                            </WorkSpaceBottomTwo>
-                        </WorkSpacesMini>
-                    </Link>
-
+                        <Link to="/Workspace">
+                            <WorkSpacesMini >
+                                <WorkSpacePhoto />
+                                <WorkSpaceCard><div><img src="./media/icons/entities.png" alt="entities" /></div></WorkSpaceCard>
+                                <WorkSpaceTitle>Entities</WorkSpaceTitle>
+                                <WorkSpaceBottom>
+                                    <p className="contract"><img className="First" src="../media/icons/smallcontract.png" alt="" /> Contract • <img className="Second" src="./media/icons/twopeople.png" alt="" /> 150 users</p>
+                                </WorkSpaceBottom>
+                                <WorkSpaceBottomTwo>
+                                    <p>Last update 2 days ago</p>
+                                </WorkSpaceBottomTwo>
+                            </WorkSpacesMini>
+                        </Link>
+                    </WorkSpacesContainer>
                 </Container2>
 
 

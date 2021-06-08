@@ -30,7 +30,7 @@ type GetPhoto = ReturnType<typeof getPhoto>
 const MainWrapper = styled.div`
 display:flex;
 width:100%;
-height:100;
+height:100%;
 background-color:${Colors.backgroundpage};
 flex-direction:column;
 font-family: Arial, Helvetica, sans-serif;
