@@ -145,10 +145,9 @@ const Container2 = styled.div`
 width:100%;
 height:30em;
 display:flex;
-flex-direction:row;
 margin-top:20px;
 flex-wrap:nowrap;
-overflow-x:auto;
+overflow-x:scroll;
 box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
 border-radius:7px;
     a{
@@ -618,7 +617,7 @@ justify-content:flex-end;
                                 <ResumeWorkText>{post.body}</ResumeWorkText>
                                 <ResumeWorkBottom>
                                     <img src="../../media/icons/logout.png" alt=""></img>Subsid.corp  <img src="../../media/icons/bell.png" alt=""></img>Supplier contract + Updated 3 Days ago by John Doe
-                            </ResumeWorkBottom>
+                                </ResumeWorkBottom>
                             </ResumeWorkMini>
 
                         ))
