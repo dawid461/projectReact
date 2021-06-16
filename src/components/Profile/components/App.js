@@ -5,7 +5,8 @@ import './App.css';
 function App() {
   const [fields, updateFields] = useState(
     {
-      name: 'Admin',
+      /* section1*/
+      name: 'Clementine Bauch',
       city: 'New York',
       job: 'Partner',
       email: 'humbertaswift@gmail.com',
@@ -14,7 +15,12 @@ function App() {
       expertise: 'mergers and acquisition',
       specialist: 'Cross border operation',
       admission: 'Paris bar association',
-      counties: 'Tunisia'
+      counties: 'Tunisia',
+      /* section3*/
+      hourly: '610$/hour (Negociated)',
+      terms: 'Monthly 10k$ retainer - see with Jeanny Smith',
+      services: 'Corporate M&A and international acquisitions',
+      internal: 'Dawid Kowalski'
     }
   );
 
