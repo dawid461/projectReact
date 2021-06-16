@@ -69,6 +69,7 @@ const MainPage: FC = () => {
 
     return (
         <Router>
+
             <MainWrapper>
                 <TopNav />
                 <Container>

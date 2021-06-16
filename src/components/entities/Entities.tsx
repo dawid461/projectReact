@@ -1,5 +1,5 @@
 import { FC, useState, ChangeEvent } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
@@ -76,7 +76,10 @@ font-weight: bold;
 color:#3a4ea4;
 margin-left: 8px;
 `;
-const Button2 = styled.button`
+const Button2 = styled.button<{ flex: boolean }>`
+${props => props.flex && css`
+color:red;
+`}
 width: 5.5em;
 display: flex;
 align-items: center;
@@ -387,7 +390,7 @@ const Entities: FC = () => {
                                 <IconButton1 src="./media/entities/mosaic.svg" alt="mosaic-img" />
                                 <TextButton1>Mosaic</TextButton1>
                             </Button1>
-                            <Button2>
+                            <Button2 flex={true} type='button'>
                                 <IconButton2 src="./media/entities/list.svg" alt="list-img" />
                                 <TextButton2>List</TextButton2>
                             </Button2>
