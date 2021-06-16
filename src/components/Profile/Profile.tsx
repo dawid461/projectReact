@@ -13,18 +13,44 @@ import { IPhotoReducer } from '../../reducers/photoReducers';
 import { ICommentReducer } from '../../reducers/commentsReducers';
 import { IPostReducer } from '../../reducers/postsReducers';
 import { UserInstance } from '../../interfaces/ISingleUser';
+import App from './components/App';
 //import Index from './components/index';
 
 /*-------------style-for-all-elements------------*/
 const Wrapper = styled.div`
-background-color:#ffffff;
 display: flex;
-width:100%;
-height:40px;
+flex-direction:column;
+width:60%;
+height:100%;
+margin-top:3em;
+margin-left:10em;
+background-color:#ffffff;
 font-size: ${fontSize[14]};
 box-shadow:2px 2px 10px ${Colors.lightgrey};
+font-size:21px;
 `;
-
+/*----------------Container1---------------------*/
+const Container1 = styled.div`
+display:flex;
+flex-direction:row;
+justify-content:flex-end;
+`;
+const BoxContainer1 = styled.div`
+display:flex;
+align-items:center;
+margin-right:30px;
+margin-top:20px;
+`;
+const ImgContainer1 = styled.img`
+width:${imageSize[14]};
+margin-right:5px;
+cursor:pointer;
+`;
+const SpanContainer1 = styled.span`
+color:${Colors.grey};
+font-weight:bold;
+cursor:pointer;
+`;
 /*-------------END-------------------------*/
 
 const Profile: FC = () => {
@@ -44,7 +70,26 @@ const Profile: FC = () => {
     if (usersList?.length > 0) {
         return (
             <Wrapper>
-                <h1>test</h1>
+
+                <Container1>
+                    <BoxContainer1>
+                        <ImgContainer1 src="./media/icons/comments.svg" alt="message" />
+                        <SpanContainer1>Message</SpanContainer1>
+                    </BoxContainer1>
+
+                    <BoxContainer1>
+                        <ImgContainer1 src="./media/icons/network.svg" alt="message" />
+                        <SpanContainer1>Create a request</SpanContainer1>
+                    </BoxContainer1>
+
+                    <BoxContainer1>
+                        <ImgContainer1 src="./media/icons/entities.svg" alt="message" />
+                        <SpanContainer1>Add to a cluster</SpanContainer1>
+                    </BoxContainer1>
+
+                </Container1>
+
+                <App />
 
             </Wrapper>
         )

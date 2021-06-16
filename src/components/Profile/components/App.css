@@ -1,3 +1,103 @@
 label {
     margin-bottom: 0rem !important;
 }
+/*--------------*/
+.buttonContainer2 {
+    width: 100%;
+    margin-left: 2em;
+}
+.buttonContainer2 button {
+    width: 5em;
+    font-size: 1.6em;
+    border-radius: 30px;
+    margin-bottom: 1em;
+}
+/*----------------Container2-----------------*/
+.Container2 {
+    width: 95%;
+    height: 8em;
+    display: Flex;
+    flex-direction: row;
+    margin-left: 1em;
+    border-bottom: 2px solid #4b5268;
+}
+.Container2 input {
+    width: 6em;
+    font-size: 21px;
+}
+/*--------------*/
+.Box1Container2 {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Box1Container2 a {
+    color: #4b5268;
+    margin-top: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    margin-top: 13px;
+}
+.profileImg {
+    width: 3em;
+}
+/*--------------*/
+.Box2Container2 {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Box2Container2 input {
+    font-size: 21px;
+    width: 5em;
+    border-radius: 10px;
+    text-align: center;
+}
+.label1Container2 {
+    color: #4b5268;
+    line-height: 1.5em;
+}
+/*--------------*/
+.Box3Container2 {
+    width: 75%;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.Box3Container2 input {
+    font-size: 21px;
+    width: 13em;
+    border-radius: 10px;
+    text-align: center;
+}
+.label2Container2 {
+    color: #4b5268;
+    line-height: 1.5em;
+}
+
+/*----------------Container3-----------------*/
+.Container3 {
+    width: 95%;
+    height: 18em;
+    display: Flex;
+    flex-direction: column;
+    margin-left: 1em;
+    border-bottom: 2px solid #4b5268;
+}
+.Box1Container3 {
+    display: flex;
+    flex-direction: column;
+}
+.label1Container3 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    line-height: 1.5em;
+}
+.TitleContainer3 {
+    font-size: 23px;
+    color: lightgray;
+    font-weight: bold;
+}
