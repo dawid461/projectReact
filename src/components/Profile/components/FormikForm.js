@@ -139,7 +139,7 @@ class MaintenanceForm extends Component {
                         </div>
 
                         <div className="label1Container4">
-                            <span className="TitleContainer4">Services & projects</span>
+                            <h1>Services & projects</h1>
                             <label type="text" name="services" >
                                 {this?.props?.fields?.services}
                             </label>
@@ -189,6 +189,96 @@ class MaintenanceForm extends Component {
                     </div>
                 </div>
 
+
+                <div className="Container5">
+                    <h1>Proposals</h1>
+                    <div className="Box1Container5">
+                        <div className="label1Container5">
+                            <span className="TitleContainer5">Name</span>
+                            <span className="TitleContainer5">Entity</span>
+                            <span className="TitleContainer5">Location</span>
+                            <span className="TitleContainer5">Expertise</span>
+                            <span className="TitleContainer5">Date</span>
+                            <span className="TitleContainer5">Firm</span>
+                        </div>
+                    </div>
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <label type="text" name="name1">
+                                {this?.props?.fields?.name1}
+                            </label>
+                            <label type="text" name="entity1">
+                                {this?.props?.fields?.entity1}
+                            </label>
+                            <label type="text" name="location1">
+                                {this?.props?.fields?.location1}
+                            </label>
+                            <label type="text" name="expertise1">
+                                {this?.props?.fields?.expertise1}
+                            </label>
+                            <label type="text" name="date1">
+                                {this?.props?.fields?.date1}
+                            </label>
+                            <label type="text" name="firm1">
+                                {this?.props?.fields?.firm1}
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <label type="text" name="name2">
+                                {this?.props?.fields?.name2}
+                            </label>
+                            <label type="text" name="entity2">
+                                {this?.props?.fields?.entity2}
+                            </label>
+                            <label type="text" name="location2">
+                                {this?.props?.fields?.location2}
+                            </label>
+                            <label type="text" name="expertise2">
+                                {this?.props?.fields?.expertise2}
+                            </label>
+                            <label type="text" name="date2">
+                                {this?.props?.fields?.date2}
+                            </label>
+                            <label type="text" name="firm2">
+                                {this?.props?.fields?.firm2}
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <label type="text" name="name3">
+                                {this?.props?.fields?.name3}
+                            </label>
+                            <label type="text" name="entity3">
+                                {this?.props?.fields?.entity3}
+                            </label>
+                            <label type="text" name="location3">
+                                {this?.props?.fields?.location3}
+                            </label>
+                            <label type="text" name="expertise3">
+                                {this?.props?.fields?.expertise3}
+                            </label>
+                            <label type="text" name="date3">
+                                {this?.props?.fields?.date3}
+                            </label>
+                            <label type="text" name="firm3">
+                                {this?.props?.fields?.firm3}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="linkCon5">
+                        <a>See more proposals</a>
+                    </div>
+
+                </div>
 
             </React.Fragment>
         );
@@ -322,6 +412,62 @@ class MaintenanceForm extends Component {
                 </div>
 
 
+
+
+                <div className="Container5">
+                    <h1>Proposals</h1>
+                    <div className="Box1Container5">
+                        <div className="label1Container5">
+                            <span className="TitleContainer5">Name</span>
+                            <span className="TitleContainer5">Entity</span>
+                            <span className="TitleContainer5">Location</span>
+                            <span className="TitleContainer5">Expertise</span>
+                            <span className="TitleContainer5">Date</span>
+                            <span className="TitleContainer5">Firm</span>
+                        </div>
+                    </div>
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <Field type="text" name="name1" placeholder="name1" />
+                            <Field type="text" name="entity1" placeholder="entity1" />
+                            <Field type="text" name="location1" placeholder="location1" />
+                            <Field type="text" name="expertise1" placeholder="expertise1" />
+                            <Field type="text" name="date1" placeholder="date1" />
+                            <Field type="text" name="firm1" placeholder="firm1" />
+                        </div>
+                    </div>
+
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <Field type="text" name="name2" placeholder="name2" />
+                            <Field type="text" name="entity2" placeholder="entity2" />
+                            <Field type="text" name="location2" placeholder="location2" />
+                            <Field type="text" name="expertise2" placeholder="expertise2" />
+                            <Field type="text" name="date2" placeholder="date2" />
+                            <Field type="text" name="firm2" placeholder="firm2" />
+                        </div>
+                    </div>
+
+
+                    <div className="Box2Container5">
+                        <div className="label2Container5">
+                            <Field type="text" name="name3" placeholder="name3" />
+                            <Field type="text" name="entity3" placeholder="entity3" />
+                            <Field type="text" name="location3" placeholder="location3" />
+                            <Field type="text" name="expertise3" placeholder="expertise3" />
+                            <Field type="text" name="date3" placeholder="date3" />
+                            <Field type="text" name="firm3" placeholder="firm3" />
+                        </div>
+                    </div>
+
+                    <div className="linkCon5">
+                        <a>See more proposals</a>
+                    </div>
+
+                </div>
+
             </React.Fragment>
         );
     }
@@ -374,8 +520,26 @@ const FormikForm = withFormik({
             hourly: props.fields.hourly,
             terms: props.fields.terms,
             services: props.fields.services,
-            internal: props.fields.internal
+            internal: props.fields.internal,
             /*-section4-*/
+            name1: props.fields.name1,
+            name2: props.fields.name2,
+            name3: props.fields.name3,
+            entity1: props.fields.entity1,
+            entity2: props.fields.entity2,
+            entity3: props.fields.entity3,
+            location1: props.fields.location1,
+            location2: props.fields.location2,
+            location3: props.fields.location3,
+            expertise1: props.fields.expertise1,
+            expertise2: props.fields.expertise2,
+            expertise3: props.fields.expertise3,
+            date1: props.fields.date1,
+            date2: props.fields.date2,
+            date3: props.fields.date3,
+            firm1: props.fields.firm1,
+            firm2: props.fields.firm2,
+            firm3: props.fields.firm3,
         }
     },
     enableReinitialize: true,

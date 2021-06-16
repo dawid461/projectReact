@@ -20,7 +20,26 @@ function App() {
       hourly: '610$/hour (Negociated)',
       terms: 'Monthly 10k$ retainer - see with Jeanny Smith',
       services: 'Corporate M&A and international acquisitions',
-      internal: 'Dawid Kowalski'
+      internal: 'Clementine Bauch',
+      /* section4*/
+      name1: 'Operation Ti...',
+      name2: 'Op. Prometh..',
+      name3: 'Op. Latandre',
+      entity1: 'Renault Co...',
+      entity2: 'Renault HQ.',
+      entity3: 'Renault Br...',
+      location1: 'France',
+      location2: 'USA',
+      location3: 'Italia',
+      expertise1: '#Tax',
+      expertise2: '#M&A',
+      expertise3: '#Social',
+      date1: '20/01/2018',
+      date2: '18/02/2019',
+      date3: '18/02/2019',
+      firm1: 'Racine',
+      firm2: 'Clifford',
+      firm3: 'SVZ',
     }
   );
 

@@ -33,7 +33,7 @@ label {
     align-items: center;
 }
 .Box1Container2 a {
-    color: #4b5268;
+    color: #76afbe;
     margin-top: 8px;
     text-decoration: none;
     font-size: 18px;
@@ -131,12 +131,14 @@ label {
 }
 /*-------------------*/
 .Container4 h1 {
+    font-size: 25px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 .Box1Container4 {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 .label1Container4 {
     display: flex;
@@ -186,4 +188,63 @@ label {
 }
 .ImgMessage {
     color: #4b5369;
+}
+/*----------Container-5-----------*/
+.Container5 {
+    width: 95%;
+    height: 13em;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+    border-bottom: 2px solid #ebebeb;
+    margin-top: 20px;
+}
+.Container5 h1 {
+    font-size: 25px;
+    font-weight: bold;
+}
+.linkCon5 a {
+    color: #76afbe;
+    margin-top: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+.linkCon5 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+/*-----------*/
+.Box1Container5 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    border-bottom: 2px solid #ebebeb;
+}
+.label1Container5 {
+    display: flex;
+    flex-direction: row;
+}
+.TitleContainer5 {
+    font-weight: bold;
+    margin-left: 85px;
+    margin-bottom: 10px;
+}
+.label2Container5 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.label2Container5 label {
+    margin-left: 52px;
+    margin-bottom: 10px;
+}
+.label2Container5 input {
+    width: 6em;
+    border-radius: 5px;
+    font-size: 21px;
 }
