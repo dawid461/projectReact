@@ -208,13 +208,27 @@ label {
     margin-top: 8px;
     text-decoration: none;
     font-size: 20px;
-    margin-top: 13px;
+    margin-top: 15px;
     cursor: pointer;
 }
 .linkCon5 {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+.linkCon5-2 a {
+    color: #000000;
+    margin-top: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+}
+.linkCon5-2 {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 /*-----------*/
 .Box1Container5 {
@@ -247,4 +261,49 @@ label {
     width: 6em;
     border-radius: 5px;
     font-size: 21px;
+}
+/*-------------container--6------------------*/
+.Container6 {
+    width: 95%;
+    height: 25em;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1em;
+    margin-top: 20px;
+}
+.h1-con6 {
+    font-size: 25px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.position {
+    display: flex;
+}
+/*-----------*/
+.Box1Container6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 2px solid #ebebeb;
+    margin-left: 40px;
+}
+.label1Container6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+.TitleContainer6 {
+    font-weight: bold;
+    margin-bottom: 2em;
+}
+.label1Container6 label {
+    margin: 20px;
+}
+.label1Container6 input {
+    width: 6em;
+    border-radius: 5px;
+    font-size: 21px;
+    margin: 8px;
 }
