@@ -14,11 +14,12 @@ import EntitiesFilter from './EntitiesFilter';
 
 /*-------------style-for-all-elements------------*/
 const BC = styled.div`
-height:100vh;
+height:100%;
 width:100%;
 `;
 const Wrapper = styled.div`
 width:79%;
+height:100%;
 display:flex;
 flex-direction:column;
 background-color:${Colors.white};
@@ -148,6 +149,10 @@ background-color:#eaecf5;
 border: 1px solid #eaecf5;
 border-radius: 5px;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const ImgAll1 = styled.img`
 width: ${imageSize[12]};
@@ -175,6 +180,10 @@ border: none;
 background-color:#ffffff;
 border-radius: 5px;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const TextCircle = styled.span`
 font-size: ${fontSize[16]};
@@ -193,6 +202,10 @@ border-right: none;
 border-top: none;
 border-bottom: none;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const ImgSort = styled.img`
 width: ${imageSize[12]};
@@ -215,6 +228,10 @@ margin-top: 15px;
 background-color:#ffffff;
 border: none;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const ImgFilter = styled.img`
 width: ${imageSize[12]};
@@ -239,6 +256,10 @@ border-right: none;
 border-top: none;
 border-bottom: none;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const ImgFullScreen = styled.img`
 width: ${imageSize[12]};
@@ -258,6 +279,10 @@ border-right: none;
 border-top: none;
 border-bottom: none;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const ImgShare = styled.img`
 width: ${imageSize[12]};

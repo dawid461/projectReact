@@ -13,7 +13,7 @@ import { IPostReducer } from '../../reducers/postsReducers';
 const MiniBoxesContent = styled.div`
     background-color:white;
     width: 100%;
-    height: auto;
+    height: 100%;
     display:flex;
     flex-direction:column;
     align-items:center;

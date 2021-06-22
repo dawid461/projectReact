@@ -25,6 +25,7 @@ margin-bottom: 2em;
 `;
 const MainBox = styled.div`
 width: 80%;
+height:10em;
 display: flex;
 flex-direction: row;
 box-shadow: 0px 5px 5px 0px ${Colors.lightgrey};
