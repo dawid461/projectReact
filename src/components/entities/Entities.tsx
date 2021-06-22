@@ -11,7 +11,7 @@ import { IPostReducer } from '../../reducers/postsReducers';
 import MosaicView from './MosaicView';
 import ListView from './ListView';
 import EntitiesFilter from './EntitiesFilter';
-
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 /*-------------style-for-all-elements------------*/
 const BC = styled.div`
 height:100%;
@@ -331,6 +331,10 @@ margin-right: 1em;
 margin-left: 1em;
 padding: 10px;
 cursor: pointer;
+&:hover {
+    background-color: #cfffa8;
+    color: #626262;
+}
 `;
 const FollowImg = styled.img`
 width: ${imageSize[14]};
@@ -355,8 +359,6 @@ height: ${imageSize[12]};
 
 
 
-
-
 function Entities(props: { isHide?: boolean }) {
     const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
         ...state.photo
@@ -373,8 +375,12 @@ function Entities(props: { isHide?: boolean }) {
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
+    const shareUrl = window.location.href;
+
+
     if (usersList?.length > 0) {
         return (
+
             <BC>
                 <Wrapper>
                     <Container1>
@@ -424,12 +430,12 @@ function Entities(props: { isHide?: boolean }) {
                                 <FullScreenButton>
                                     <ImgFullScreen src="./media/entities/fullscreen.svg" alt="fullscreen-img" />
                                 </FullScreenButton>
-
-                                <ShareButton>
-                                    <ImgShare src="./media/entities/share.svg" alt="share-img" />
-                                    <TextShare>Share</TextShare>
-                                </ShareButton>
-
+                                <CopyToClipboard text={shareUrl}>
+                                    <ShareButton>
+                                        <ImgShare src="./media/entities/share.svg" alt="share-img" />
+                                        <TextShare>Share</TextShare>
+                                    </ShareButton>
+                                </CopyToClipboard>
 
 
                             </ResumeWorkHeaderDiv1>

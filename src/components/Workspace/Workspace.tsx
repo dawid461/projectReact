@@ -618,7 +618,7 @@ const Workspace: FC = () => {
                                 <ResumeWorkText>{post.body}</ResumeWorkText>
                                 <ResumeWorkBottom>
                                     <img src="../../media/icons/workspace/button2.svg" alt="entities-svg" /><LittleSpan>SAS</LittleSpan> . Updated 3 Days ago by John Doe
-                            </ResumeWorkBottom>
+                                </ResumeWorkBottom>
                             </ResumeWorkMini>
 
                         ))
