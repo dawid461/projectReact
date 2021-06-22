@@ -8,6 +8,9 @@ import { useSelector } from 'react-redux';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotoReducer } from '../../reducers/photoReducers';
 import { IPostReducer } from '../../reducers/postsReducers';
+import MosaicView from './MosaicView';
+import ListView from './ListView';
+import EntitiesFilter from './EntitiesFilter';
 
 /*-------------style-for-all-elements------------*/
 const BC = styled.div`
@@ -56,7 +59,7 @@ height:2em;
 display:flex;
 justify-content:flex-end;
 `;
-const Button1 = styled.button`
+const Button1 = styled.div<{ isHide?: string }>`
 width:8em;
 display:flex;
 align-items:center;
@@ -65,6 +68,14 @@ background-color:#eaecf5;
 border:1px solid #eaecf5;
 border-radius:5px 0px 0px 5px;
 cursor:pointer;
+${props => props.isHide == `grid`
+        ? css`background-color: #eaecf5;`
+        : css`background-color: #white;`
+    }
+    &:hover {
+        background-color: #cfffa8;
+        color: #626262;
+    }
 `;
 const IconButton1 = styled.img`
 width: ${imageSize[12]};
@@ -76,10 +87,7 @@ font-weight: bold;
 color:#3a4ea4;
 margin-left: 8px;
 `;
-const Button2 = styled.button<{ flex: boolean }>`
-${props => props.flex && css`
-color:red;
-`}
+const Button2 = styled.div<{ isHide?: string }>`
 width: 5.5em;
 display: flex;
 align-items: center;
@@ -89,6 +97,14 @@ border: none;
 border: 1px solid #eaecf5;
 border-radius: 0px 5px 5px 0px;
 cursor: pointer;
+${props => props.isHide == 'list'
+        ? css`background-color: #eaecf5;`
+        : css`background-color: #white;`
+    }
+&:hover {
+background-color: #cfffa8;
+color: #626262;
+}
 `;
 const IconButton2 = styled.img`
 width: ${imageSize[12]};
@@ -307,74 +323,31 @@ width: ${imageSize[12]};
 height: ${imageSize[12]};
 `;
 /*-------------Container-3-----------------*/
-const Container3 = styled.div`
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-margin-top: 3em;
-`;
-const MiniContainer = styled.div`
-width: 100%;
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-margin-bottom: 2em;
-`;
-const MainBox = styled.div`
-width: 22vh;
-display: flex;
-flex-direction: row;
-box-shadow: 0px 5px 5px 0px ${Colors.lightgrey};
-padding: 10px;
-`;
-const MiniBox1 = styled.div`
-display: flex;
-align-items: center;
-`;
-const ImgMiniBox = styled.img`
-width: ${imageSize[17]};
-height: ${imageSize[17]};
-border-radius: 10px;
-margin-left: 10px;
-`;
-const MiniBox2 = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin-left: 6px;
-`;
-const TitleMiniBox = styled.span`
-font-size: ${fontSize[16]};
-font-weight: bold;
-color:#3d50a6;
-`;
-const DescriptionMiniBox = styled.p`
-font-size: ${fontSize[12]};
-color: ${Colors.leftmenufontcolor};
-margin-top: 2em;
-`;
+
+
 /*-------------END-------------------------*/
 
-const Entities: FC = () => {
+
+
+
+
+
+function Entities(props: { isHide?: boolean }) {
+    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
+        ...state.photo
+    }));
+    console.log(photoList)
+    const [openFilter, isOpen] = useState(false);
+    const [viewType, isViewType] = useState('grid');
+
+
 
     const { postList } = useSelector<IState, IPostReducer>(state => ({
         ...state.posts
     }));
-    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
-        ...state.photo
-    }));
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
-
-    //searcher content
-    const [inputText, setInputText] = useState<string>('');
-
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const text = e.target.value;
-        setInputText(text);
-    }
     if (usersList?.length > 0) {
         return (
             <BC>
@@ -386,13 +359,15 @@ const Entities: FC = () => {
                         </Box1>
 
                         <Box2>
-                            <Button1>
+                            <Button1 isHide={viewType} onClick={() => isViewType('grid')}>
                                 <IconButton1 src="./media/entities/mosaic.svg" alt="mosaic-img" />
                                 <TextButton1>Mosaic</TextButton1>
+                                {viewType == 'grid'}
                             </Button1>
-                            <Button2 flex={true} type='button'>
+                            <Button2 isHide={viewType} onClick={() => isViewType('list')}>
                                 <IconButton2 src="./media/entities/list.svg" alt="list-img" />
                                 <TextButton2>List</TextButton2>
+                                {viewType == 'list'}
                             </Button2>
                         </Box2>
                     </Container1>
@@ -401,7 +376,7 @@ const Entities: FC = () => {
                     <Container2>
                         <ResumeWorkHeaderContainer>
                             <ResumeWorkHeaderDiv1>
-                                <AllButton>
+                                <AllButton onClick={() => isOpen(!openFilter)}>
                                     <ImgAll1 src="./media/entities/circle.svg" alt="img-circle" />
                                     <TextAll>All</TextAll>
                                     <ImgAll2 src="./media/entities/arrow.svg" alt="arrow-img" />
@@ -435,7 +410,7 @@ const Entities: FC = () => {
                             </ResumeWorkHeaderDiv1>
                             <ResumeWorkHeaderDiv2>
                                 <InputDiv>
-                                    <InputFilter placeholder="Search..." value={inputText} onChange={inputHandler} ></InputFilter>
+                                    <InputFilter placeholder="Search..."></InputFilter>
                                     <InputImg src="./media/icons/search.png" alt="input-img"></InputImg>
                                 </InputDiv>
 
@@ -449,265 +424,13 @@ const Entities: FC = () => {
 
                     </Container2>
 
-                    <Container3>
+                    {openFilter && <EntitiesFilter />}
+                    {viewType === 'grid' ?
+                        <MosaicView photoList={photoList} />
+                        :
+                        <ListView photoList={photoList} />
+                    }
 
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[1]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[1]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[1]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[1]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[2]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[2]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[2]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[2]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[3]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[3]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[3]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[3]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[4]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[4]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[4]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[4]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[5]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[5]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[5]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[5]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-
-                        <MiniContainer>
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[6]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[6]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[6]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-
-                            <MainBox>
-                                <MiniBox1>
-                                    <ImgMiniBox src={photoList[6]?.url} alt="api-image" />
-                                </MiniBox1>
-                                <MiniBox2>
-                                    <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
-                                    <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1].address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
-                                </MiniBox2>
-                            </MainBox>
-                        </MiniContainer>
-
-
-                    </Container3>
 
                 </Wrapper>
             </BC>
@@ -716,6 +439,7 @@ const Entities: FC = () => {
     else {
         return (<Wrapper />)
     }
+
 };
 export default Entities;
 
