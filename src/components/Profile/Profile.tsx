@@ -1,20 +1,13 @@
 
-import { FC, useState, ChangeEvent } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
 import { imageSize } from '../../styledHelpers/ImageSize';
-import { Link } from 'react-router-dom';
-import ReactPaginate from 'react-paginate';
 import { IState } from '../../reducers'
 import { useSelector } from 'react-redux';
 import { IUsersReducer } from '../../reducers/usersReducers';
-import { IPhotoReducer } from '../../reducers/photoReducers';
-import { ICommentReducer } from '../../reducers/commentsReducers';
-import { IPostReducer } from '../../reducers/postsReducers';
-import { UserInstance } from '../../interfaces/ISingleUser';
 import App from './components/App';
-//import Index from './components/index';
 
 /*-------------style-for-all-elements------------*/
 const Wrapper = styled.div`
@@ -56,15 +49,6 @@ cursor:pointer;
 const Profile: FC = () => {
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
-    }));
-    const { commentList } = useSelector<IState, ICommentReducer>(state => ({
-        ...state.comment
-    }));
-    const { postList } = useSelector<IState, IPostReducer>(state => ({
-        ...state.posts
-    }));
-    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
-        ...state.photo
     }));
 
     if (usersList?.length > 0) {

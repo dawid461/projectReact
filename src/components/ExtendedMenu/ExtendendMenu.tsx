@@ -9,7 +9,6 @@ import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotoReducer } from '../../reducers/photoReducers';
 import { useSelector } from 'react-redux';
 import { IState } from '../../reducers'
-import { profile } from 'console';
 /*----------Wrapper--------------------*/
 const Wrapper = styled.div`
 background-color:${Colors.white};

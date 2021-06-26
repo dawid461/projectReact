@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
@@ -7,7 +7,6 @@ import { IState } from '../../reducers'
 import { useSelector } from 'react-redux';
 import { IUsersReducer } from '../../reducers/usersReducers';
 import { IPhotoReducer } from '../../reducers/photoReducers';
-import { IPostReducer } from '../../reducers/postsReducers';
 import MosaicView from './MosaicView';
 import ListView from './ListView';
 import EntitiesFilter from './EntitiesFilter';
@@ -69,7 +68,7 @@ background-color:#eaecf5;
 border:1px solid #eaecf5;
 border-radius:5px 0px 0px 5px;
 cursor:pointer;
-${props => props.isHide == `grid`
+${props => props.isHide === `grid`
         ? css`background-color: #eaecf5;`
         : css`background-color: #white;`
     }
@@ -98,7 +97,7 @@ border: none;
 border: 1px solid #eaecf5;
 border-radius: 0px 5px 5px 0px;
 cursor: pointer;
-${props => props.isHide == 'list'
+${props => props.isHide === 'list'
         ? css`background-color: #eaecf5;`
         : css`background-color: #white;`
     }
@@ -369,13 +368,14 @@ function Entities(props: { isHide?: boolean }) {
 
 
 
-    const { postList } = useSelector<IState, IPostReducer>(state => ({
-        ...state.posts
-    }));
+
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
     const shareUrl = window.location.href;
+
+
+
 
     //sortowanie
     const [textInput, setTextInput] = useState<string>('');
@@ -431,6 +431,10 @@ function Entities(props: { isHide?: boolean }) {
         }
     }
 
+
+
+
+
     if (usersList?.length > 0) {
         return (
 
@@ -446,12 +450,12 @@ function Entities(props: { isHide?: boolean }) {
                             <Button1 isHide={viewType} onClick={() => isViewType('grid')}>
                                 <IconButton1 src="./media/entities/mosaic.svg" alt="mosaic-img" />
                                 <TextButton1>Mosaic</TextButton1>
-                                {viewType == 'grid'}
+                                {viewType === 'grid'}
                             </Button1>
                             <Button2 isHide={viewType} onClick={() => isViewType('list')}>
                                 <IconButton2 src="./media/entities/list.svg" alt="list-img" />
                                 <TextButton2>List</TextButton2>
-                                {viewType == 'list'}
+                                {viewType === 'list'}
                             </Button2>
                         </Box2>
                     </Container1>

@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';
@@ -8,8 +8,6 @@ import ReactPaginate from 'react-paginate';
 import { IState } from '../../reducers'
 import { useSelector } from 'react-redux';
 import { IUsersReducer } from '../../reducers/usersReducers';
-import { IPhotoReducer } from '../../reducers/photoReducers';
-import { ICommentReducer } from '../../reducers/commentsReducers';
 import { IPostReducer } from '../../reducers/postsReducers';
 
 /*-------------style-for-all-elements------------*/
@@ -421,36 +419,36 @@ font-weight:bold;
 `;
 /*----------posts-with-pagination--------------------*/
 const ResumeWorkMini = styled.h1`
-    width: 100%;
-    height:10em;
-    background-color:white;
-    border-radius:6px;
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    margin-top:20px;
+width: 100%;
+height:10em;
+background-color:white;
+border-radius:6px;
+box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+margin-top:20px;
 `;
 const ResumeWorkTitle = styled.div`
-    font-size:20px;
-    padding-top:10px;
-    padding-left:10px;
-    color:rgb(67,85,168);
-    font-weight:bold;    
+font-size:20px;
+padding-top:10px;
+padding-left:10px;
+color:rgb(67,85,168);
+font-weight:bold;    
 `;
 const ResumeWorkText = styled.p`
-    font-size:15px;
-    color:rgb(148,151,174);
-    padding-top:10px;
-    padding-left:10px;
-    padding-right:10px;
-    padding-bottom: 10px;
-    text-align:justify;
+font-size:15px;
+color:rgb(148,151,174);
+padding-top:10px;
+padding-left:10px;
+padding-right:10px;
+padding-bottom: 10px;
+text-align:justify;
 `;
 const ResumeWorkBottom = styled.span`
-    font-size:12px;
-    color:rgb(148,151,174);
-    padding-top:10px;
-    padding-bottom:10px;
-    padding-left:10px;
-    padding-right:10px;
+font-size:12px;
+color:rgb(148,151,174);
+padding-top:10px;
+padding-bottom:10px;
+padding-left:10px;
+padding-right:10px;
     img{
         width:12px;
         height:12px;
@@ -468,14 +466,8 @@ const Workspace: FC = () => {
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
-    const { commentList } = useSelector<IState, ICommentReducer>(state => ({
-        ...state.comment
-    }));
     const { postList } = useSelector<IState, IPostReducer>(state => ({
         ...state.posts
-    }));
-    const { photoList } = useSelector<IState, IPhotoReducer>(state => ({
-        ...state.photo
     }));
     const [currentPage, setCurrentPage] = useState<number>(0);
     const handlePageClick = (data: any) => {

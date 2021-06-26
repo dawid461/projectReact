@@ -1,5 +1,5 @@
 
-import { FC, useState, ChangeEvent } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import { Colors } from '../../styledHelpers/Colors';
 import { fontSize } from '../../styledHelpers/FontSizes';

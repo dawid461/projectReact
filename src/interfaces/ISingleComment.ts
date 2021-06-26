@@ -1,5 +1,4 @@
 export interface ISingleComment {
-
     postId: number,
     id: number,
     name: string,
