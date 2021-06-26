@@ -377,6 +377,59 @@ function Entities(props: { isHide?: boolean }) {
     }));
     const shareUrl = window.location.href;
 
+    //sortowanie
+    const [textInput, setTextInput] = useState<string>('');
+
+
+    const handleChange = (event: any) => {
+        setTextInput(event.target.value);
+        filterRows();
+    }
+    const filterRows = () => {
+        let worksFiltered = [...photoList];
+        if (textInput !== '') {
+            const filterString = textInput.toLowerCase();
+            worksFiltered = worksFiltered.filter(v => v.title.toLowerCase().includes(filterString));
+        }
+        return worksFiltered;
+    }
+    const filtredRowsList = filterRows();
+    const [sorting, setSorting] = useState<number>(1);
+    console.log(filtredRowsList)
+    const compare = (a: any, b: any) => {
+        if (sorting === 2) {
+            if (a.title < b.title) {
+                return -1;
+            }
+            if (a.title > b.title) {
+                return 1;
+            }
+            return 0;
+        }
+        else if (sorting === 3) {
+            if (a.title < b.title) {
+                return 1;
+            }
+            if (a.title > b.title) {
+                return -1;
+            }
+            return 0;
+        } else {
+            return 0;
+        }
+
+    }
+    const changeSort = () => {
+        if (sorting === 1) {
+            setSorting(2)
+        }
+        if (sorting === 2) {
+            setSorting(3)
+        }
+        if (sorting === 3) {
+            setSorting(1)
+        }
+    }
 
     if (usersList?.length > 0) {
         return (
@@ -417,12 +470,12 @@ function Entities(props: { isHide?: boolean }) {
                                     <TextCircle>. . .</TextCircle>
                                 </CircleButton>
 
-                                <SortButton>
+                                <SortButton onClick={changeSort}>
                                     <ImgSort src="./media/entities/sort.svg" alt="sort-img" />
                                     <TextSort>Sort</TextSort>
                                 </SortButton>
 
-                                <FilterButton>
+                                <FilterButton onClick={() => isOpen(!openFilter)}>
                                     <ImgFilter src="./media/entities/filter.svg" alt="filter-img" />
                                     <TextFilter>Filters</TextFilter>
                                 </FilterButton>
@@ -441,7 +494,7 @@ function Entities(props: { isHide?: boolean }) {
                             </ResumeWorkHeaderDiv1>
                             <ResumeWorkHeaderDiv2>
                                 <InputDiv>
-                                    <InputFilter placeholder="Search..."></InputFilter>
+                                    <InputFilter placeholder="Search..." onChange={handleChange}></InputFilter>
                                     <InputImg src="./media/icons/search.png" alt="input-img"></InputImg>
                                 </InputDiv>
 
@@ -457,9 +510,9 @@ function Entities(props: { isHide?: boolean }) {
 
                     {openFilter && <EntitiesFilter />}
                     {viewType === 'grid' ?
-                        <MosaicView photoList={photoList} />
+                        <MosaicView photoList={filtredRowsList.sort(compare)} />
                         :
-                        <ListView photoList={photoList} />
+                        <ListView photoList={filtredRowsList.sort(compare)} />
                     }
 
 

@@ -68,6 +68,9 @@ function MosaicView({ photoList }: any) {
     const { usersList } = useSelector<IState, IUsersReducer>(state => ({
         ...state.users
     }));
+
+
+
     if (usersList?.length > 0) {
         return (
             <Container3>
@@ -80,10 +83,10 @@ function MosaicView({ photoList }: any) {
 
                                 <MainBox>
                                     <MiniBox1>
-                                        <ImgMiniBox src={v.url} alt="api-image" />
+                                        <ImgMiniBox src={v?.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>
@@ -93,7 +96,7 @@ function MosaicView({ photoList }: any) {
                                         <ImgMiniBox src={v.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>
@@ -103,7 +106,7 @@ function MosaicView({ photoList }: any) {
                                         <ImgMiniBox src={v.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>
@@ -113,7 +116,7 @@ function MosaicView({ photoList }: any) {
                                         <ImgMiniBox src={v.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>
@@ -123,7 +126,7 @@ function MosaicView({ photoList }: any) {
                                         <ImgMiniBox src={v.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>
@@ -133,7 +136,7 @@ function MosaicView({ photoList }: any) {
                                         <ImgMiniBox src={v.url} alt="api-image" />
                                     </MiniBox1>
                                     <MiniBox2>
-                                        <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                        <TitleMiniBox>{v?.title}</TitleMiniBox>
                                         <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                                     </MiniBox2>
                                 </MainBox>

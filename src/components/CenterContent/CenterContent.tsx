@@ -306,6 +306,13 @@ margin-top:3px;
 `;
 const SelectFollowDiv = styled.div`
 display:flex;
+&:hover {
+    border-radius:10px;
+    height:3em;
+    background-color: #cfffa8;
+    color: #626262;
+    cursor:pointer;
+}
 `;
 const FollowImg = styled.img`
 width:${imageSize[15]};
@@ -384,13 +391,7 @@ const CenterContent: FC = () => {
         const selected = data.selected;
         setCurrentPage(selected);
     }
-    //searcher content
-    const [inputText, setInputText] = useState<string>('');
 
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const text = e.target.value;
-        setInputText(text);
-    }
     const ImgWithTtile = styled.div`
 display:flex;
 width:30%;
@@ -400,7 +401,23 @@ background-size:cover;
 background-repeat: none;
 justify-content:flex-end;
 `;
+    const [textInput, setTextInput] = useState("");
 
+    const handleChange = (event: any) => {
+        setTextInput(event.target.value);
+        filterRows();
+    };
+    const filterRows = () => {
+        let worksFiltered = [...postList];
+        if (textInput !== "") {
+            const filterString = textInput.toLowerCase();
+            worksFiltered = worksFiltered.filter((v) =>
+                v.title.toLowerCase().includes(filterString)
+            );
+        }
+        return worksFiltered;
+    };
+    const filtredRowsList = filterRows();
 
 
     if (usersList?.length > 0) {
@@ -595,7 +612,7 @@ justify-content:flex-end;
                         </ResumeWorkHeaderDiv1>
                         <ResumeWorkHeaderDiv2>
                             <InputDiv>
-                                <InputFilter placeholder="Filter by title..." value={inputText} onChange={inputHandler} ></InputFilter>
+                                <InputFilter placeholder="Filter by title..." onChange={handleChange} ></InputFilter>
                                 <InputImg src="./media/icons/search.png" alt="input-img"></InputImg>
                             </InputDiv>
                             <SelectFollowDiv>
@@ -607,22 +624,17 @@ justify-content:flex-end;
                     </ResumeWorkHeaderContainer>
 
 
-                    {"$post.title".toLowerCase().includes(inputText.toLowerCase()) &&
-                        //musisz ogarnac jak zrobic wyszukiwanie pod pokazujace sie posty z api
+                    {filtredRowsList.slice(currentPage, currentPage + 10).map((v) => (
+                        <ResumeWorkMini key={v.id}>
+                            <ResumeWorkTitle>{v.title}</ResumeWorkTitle>
+                            <ResumeWorkText>{v.body}</ResumeWorkText>
+                            <ResumeWorkBottom>
+                                <img src="../../media/icons/logout.png" alt=""></img>Subsid.corp  <img src="../../media/icons/bell.png" alt=""></img>Supplier contract + Updated 3 Days ago by John Doe
+                            </ResumeWorkBottom>
+                        </ResumeWorkMini>
 
-
-                        postList.slice(currentPage, currentPage + 10).map((post) => (
-                            <ResumeWorkMini key={post.id}>
-                                <ResumeWorkTitle>{post.title}</ResumeWorkTitle>
-                                <ResumeWorkText>{post.body}</ResumeWorkText>
-                                <ResumeWorkBottom>
-                                    <img src="../../media/icons/logout.png" alt=""></img>Subsid.corp  <img src="../../media/icons/bell.png" alt=""></img>Supplier contract + Updated 3 Days ago by John Doe
-                                </ResumeWorkBottom>
-                            </ResumeWorkMini>
-
-                        ))
-                    }
-                    <ReactPaginate
+                    ))}
+                    < ReactPaginate
                         previousLabel={'PREVIOUS'}
                         nextLabel={'NEXT'}
                         breakLabel={'...'}

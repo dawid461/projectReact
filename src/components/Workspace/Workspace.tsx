@@ -223,6 +223,13 @@ margin-top:3px;
 `;
 const SelectFollowDiv = styled.div`
 display:flex;
+&:hover {
+    border-radius:10px;
+    height:3em;
+    background-color: #cfffa8;
+    color: #626262;
+    cursor:pointer;
+}
 `;
 const FollowImg = styled.img`
 width:${imageSize[15]};
@@ -476,12 +483,24 @@ const Workspace: FC = () => {
         setCurrentPage(selected);
     }
     //searcher content
-    const [inputText, setInputText] = useState<string>('');
+    const [textInput, setTextInput] = useState("");
 
-    const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        const text = e.target.value;
-        setInputText(text);
-    }
+    const handleChange = (event: any) => {
+        setTextInput(event.target.value);
+        filterRows();
+    };
+    const filterRows = () => {
+        let worksFiltered = [...postList];
+        if (textInput !== "") {
+            const filterString = textInput.toLowerCase();
+            worksFiltered = worksFiltered.filter((v) =>
+                v.title.toLowerCase().includes(filterString)
+            );
+        }
+        return worksFiltered;
+    };
+    const filtredRowsList = filterRows();
+
 
     if (usersList?.length > 0) {
         return (
@@ -555,7 +574,7 @@ const Workspace: FC = () => {
                         </ResumeWorkHeaderDiv1>
                         <ResumeWorkHeaderDiv2>
                             <InputDiv>
-                                <InputFilter placeholder="Filter by title..." value={inputText} onChange={inputHandler} ></InputFilter>
+                                <InputFilter placeholder="Filter by title..." onChange={handleChange} ></InputFilter>
                                 <InputImg src="./media/icons/search.png" alt="input-img"></InputImg>
                             </InputDiv>
                             <SelectFollowDiv>
@@ -608,21 +627,15 @@ const Workspace: FC = () => {
                     </ButtonsContainer>
 
 
-                    {"$post.title".toLowerCase().includes(inputText.toLowerCase()) &&
-                        //musisz ogarnac jak zrobic wyszukiwanie pod pokazujace sie posty z api
-
-
-                        postList.slice(currentPage, currentPage + 10).map((post) => (
-                            <ResumeWorkMini key={post.id}>
-                                <ResumeWorkTitle>{post.title}</ResumeWorkTitle>
-                                <ResumeWorkText>{post.body}</ResumeWorkText>
-                                <ResumeWorkBottom>
-                                    <img src="../../media/icons/workspace/button2.svg" alt="entities-svg" /><LittleSpan>SAS</LittleSpan> . Updated 3 Days ago by John Doe
-                                </ResumeWorkBottom>
-                            </ResumeWorkMini>
-
-                        ))
-                    }
+                    {filtredRowsList.slice(currentPage, currentPage + 10).map((v) => (
+                        <ResumeWorkMini key={v.id}>
+                            <ResumeWorkTitle>{v.title}</ResumeWorkTitle>
+                            <ResumeWorkText>{v.body}</ResumeWorkText>
+                            <ResumeWorkBottom>
+                                <img src="../../media/icons/workspace/button2.svg" alt="entities-svg" /><LittleSpan>SAS</LittleSpan> . Updated 3 Days ago by John Doe
+                            </ResumeWorkBottom>
+                        </ResumeWorkMini>
+                    ))}
                     <ReactPaginate
                         previousLabel={'PREVIOUS'}
                         nextLabel={'NEXT'}

@@ -82,7 +82,7 @@ function ListView({ photoList }: any) {
                                 <ImgMiniBox src={v.url} alt="api-image" />
                             </MiniBoxDataLeft>
                             <MiniBoxDataRight>
-                                <TitleMiniBox>{postList[1]?.title}</TitleMiniBox>
+                                <TitleMiniBox>{v.title}</TitleMiniBox>
                                 <DescriptionMiniBox>{usersList[1]?.address.city} {usersList[1]?.address.street} {usersList[1].address.zipcode}</DescriptionMiniBox>
                             </MiniBoxDataRight>
                         </MiniBoxData>
